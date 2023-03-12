@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mary Rose Cart</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload = "addWineToCartOnload()">
+	<div class="container">
+	<div class="navbar">
+		<div class="logo">
+			<a href="index.html"><img src="images/Logo (2).jfif" alt="Snow" width="280px" height="140px"></a>		
+		</div>
+		<nav>
+			<ul id="MenuItems">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="products.html">Products</a></li>
+				<li><a href="index.html">About</a></li>
+				<li><a href="index.html">Contact</a></li>
+				<li><a href="account.html">Account</a></li>
+			</ul>
+		</nav>
+		<a href="cart.html"><img id="cart-pic" src="images/cartpic.png" alt="Snow" width="30px" height="30px"></a>
+	</div>
+	</div>
+
+<!--------- cart items details ------------>
+
+<div class="small-container">
+	<table>
+		<tr>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Subtotal</th>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item1">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic1" alt="Snow">
+					<div id="wine1">
+						<p id="wine-title1"></p>
+						<small id="wine-price1"></small>
+						<br>
+						<button id="wine-remove-button1" type="button" onclick="removeCartItem1()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity1"></p></td>
+			<td id="wine-subtotal-price1"></td>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item2">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic2" alt="Snow">
+					<div id="wine2">
+						<p id="wine-title2"></p>
+						<small id="wine-price2"></small>
+						<br>
+						<button id="wine-remove-button2" type="button" onclick="removeCartItem2()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity2"></p></td>
+			<td id="wine-subtotal-price2"></td>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item3">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic3" alt="Snow">
+					<div id="wine3">
+						<p id="wine-title3"></p>
+						<small id="wine-price3"></small>
+						<br>
+						<button id="wine-remove-button3" type="button" onclick="removeCartItem3()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity3"></p></td>
+			<td id="wine-subtotal-price3"></td>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item4">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic4" alt="Snow">
+					<div id="wine4">
+						<p id="wine-title4"></p>
+						<small id="wine-price4"></small>
+						<br>
+						<button id="wine-remove-button4" type="button" onclick="removeCartItem4()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity4"></p></td>
+			<td id="wine-subtotal-price4"></td>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item5">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic5" alt="Snow">
+					<div id="wine5">
+						<p id="wine-title5"></p>
+						<small id="wine-price5"></small>
+						<br>
+						<button id="wine-remove-button5" type="button" onclick="removeCartItem5()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity5"></p></td>
+			<td id="wine-subtotal-price5"></td>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item6">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic6" alt="Snow">
+					<div id="wine6">
+						<p id="wine-title6"></p>
+						<small id="wine-price6"></small>
+						<br>
+						<button id="wine-remove-button6" type="button" onclick="removeCartItem6()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity6"></p></td>
+			<td id="wine-subtotal-price6"></td>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item7">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic7" alt="Snow">
+					<div id="wine7">
+						<p id="wine-title7"></p>
+						<small id="wine-price7"></small>
+						<br>
+						<button id="wine-remove-button7" type="button" onclick="removeCartItem7()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity7"></p></td>
+			<td id="wine-subtotal-price7"></td>
+		</tr>
+		<tr style="visibility:collapse" id="cart-item8">
+			<td>
+				<div class="cart-info">
+					<img id="wine-pic8" alt="Snow">
+					<div id="wine8">
+						<p id="wine-title8"></p>
+						<small id="wine-price8"></small>
+						<br>
+						<button id="wine-remove-button8" type="button" onclick="removeCartItem8()">Remove</button>
+					</div>
+				</div>
+			</td>
+			<td><p id="wine-quantity8"></p></td>
+			<td id="wine-subtotal-price8"></td>
+		</tr>
+	</table>
+	<button style="visibility: collapse" class="btn btn-primary shop-item-button" id="purchase-button" type="button" onclick="proceedToCheckOut()" style="margin-left: 900px">Proceed to checkout</button>
+
+	<div class="total-price">
+		<table id="cartTotal">
+			<tr>
+				<td>Subtotal</td>
+				<td id="wine-subtotal-price"></td>
+			</tr>
+			<tr>
+				<td>Tax</td>
+				<td id="wine-tax"></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="wine-total-price"></td>
+			</tr>
+		</table>
+	</div>
+
+
+</div>
+    
+
+    <!--------- footer --------->
+    <div class="footer">
+    	<div class="container">
+    		<div class="row">
+    			<div class="footer-col-1">
+    				<h3>Download Our App</h3>
+    				<p>Download App for Android and ios mobile phone</p>
+    				<div class="app-logo">
+    					<img src="images/playstore.png" alt="Snow" width="50px" height="110px">
+    					<img src="images/app_store.png" alt="Snow" width="50px" height="110px">
+    				</div>
+    			</div>
+    			<div class="footer-col-2">
+    				<img src="images/Logo (4).jpeg" alt="Snow">
+    				<p>Our Purpose is To Sustainably Make the Pleasure and Benefits of Wine Accessible to the World</p>
+    			</div>
+    			<div class="footer-col-3">
+    				<h3>Useful Links</h3>
+    				<ul>
+    					<li>Coupons</li>
+    					<li>Blog Post</li>
+    					<li>Return Policy</li>
+    					<li>Join Affiliate</li>
+    				</ul>
+    			</div>
+    			<div class="footer-col-4">
+    				<h3>Follow us</h3>
+    				<ul>
+    					<li>Facebook</li>
+    					<li>Twitter</li>
+    					<li>Instagram</li>
+    					<li>Youtube</li>
+    				</ul>
+    			</div>
+    		</div>
+    		<hr>
+    		<p class="copyright">Copyright 2020 - Mary Rose PTY LTD</p>
+    	</div>
+    </div>
+    
+    <!---------js for addCart ------------->
+    <script src="cart.js">
+   
+	</script>
+
+    <!----------js for toggle menu----------->
+    <script>
+    	var MenuItems = document.getElementById("MenuItems");
+
+    	MenuItems.style.maxHeight = "0px";
+
+    	function menutoggle(){
+    		if(MenuItems.style.maxHeight == "0px")
+    		{
+    			MenuItems.style.maxHeight = "200px"
+    		}
+    		else
+    		{
+    		    MenuItems.style.maxHeight = "0px"	
+    		}
+    	}
+    </script>
+
+
+</body>
+</html>

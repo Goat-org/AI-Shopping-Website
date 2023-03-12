@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mary Rose All Products</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload = "showCartImgOnload()">
+	<div class="container">
+	<div class="navbar">
+		<div class="logo">
+			<a href="index.html"><img src="images/Logo (2).jfif" alt="Snow" width="280px" height="140px"></a>		
+		</div>
+		<nav>
+			<ul id="MenuItems">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="products.html">Products</a></li>
+				<li><a href="index.html">About</a></li>
+				<li><a href="index.html">Contact</a></li>
+				<li><a href="account.html">Account</a></li>
+			</ul>
+		</nav>
+		<a href="cart.html"><img id = "cart-pic" src="images/cartpic.png" alt="Snow" width="30px" height="30px"></a>
+		<img src="images/menu.png" alt="Snow" class="menu-icon"
+		 onclick="menutoggle()">
+	</div>
+	</div>
+
+    <div class="small-container">
+
+    	<div class="row row-2">
+    		<h2>All Products</h2>
+    	    <select>
+    		     <option>Deafault Sorting</option>
+    		     <option>Sort by price</option>
+    		     <option>Sort by popularity</option>
+    		     <option>Sort by rating</option>
+    		     <option>Sort by sale</option>
+    	    </select>
+        </div>
+
+    	<div class="row"> 
+    	    <div class="col-4">
+    		    <a href="product-details1.html"><img src="images/Standard Red Wine5.png" alt="Snow"></a>
+    		    <a href="product-details1.html"><h4>Mary Rose Pinotage Red Wine</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-o"></i>
+    		    </div>
+    		    <p>R119.99</p>
+    	    </div>
+    	    <div class="col-4">
+    		    <a href="product-details6.html"><img src="images/bottlepic3.png" alt="Snow"></a>
+    		    <a href="product-details6.html"><h4>Mary Rose Premium</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-half-o"></i>
+    		        <i class="fa fa-star-o"></i>
+    		    </div>
+    		    <p>$259.99</p>
+    	    </div>
+    	    <div class="col-4">
+    		    <a href="product-details7.html"><img src="images/bottlepic5.png" alt="Snow"></a>
+    		    <a href="product-details7.html"><h4>Mary Rose Premium Gold</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-half-o"></i>
+    		    </div>
+    		    <p>$499.99</p>
+    	    </div>
+    	    <div class="col-4">
+    		    <a href="product-details6.html"><img src="images/bottlepic4.png" alt="Snow"></a>
+    		    <a href="product-details6.html"><h4>Mary Rose Premium</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-o"></i>
+    		    </div>
+    		    <p>$259.99</p>
+    	    </div>
+        </div>
+
+    	
+    	<div class="row"> 
+    	    <div class="col-4">
+    	    	<a href="product-details4.html"><img src="images/Vintage Limited.jpeg" alt="Snow"></a>
+    		    <a href="product-details4.html"><h4>Mary Rose Vintage Limited Edition</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-o"></i>
+    		    </div>
+    		    <p>R199.99</p>
+    	    </div>
+    	    <div class="col-4">
+    		    <a href="product-details3.html"><img src="images/Vintage blue.jpeg" alt="Snow"></a>
+    		    <a href="product-details3.html"><h4>Mary Rose Vintage Blue</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-half-o"></i>
+    		    </div>
+    		    <p>R249.99</p>
+    	    </div>
+    	    <div class="col-4">
+    		    <a href="product-details1.html"><img src="images/Standard Red Wine1.jpeg" alt="Snow"></a>
+    		    <a href="product-details1.html"><h4>Mary Rose Pinotage Red Wine</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-o"></i>
+    		    </div>
+    		    <p>R119.99</p>
+    	    </div>
+    	    <div class="col-4">
+    		    <a href="product-details2.html"><img src="images/Vintage normal.jpeg" alt="Snow"></a>
+    		    <a href="product-details2.html"><h4>Mary Rose Vintage Original</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-half-o"></i>
+    		        <i class="fa fa-star-o"></i>
+    		    </div>
+    		    <p>R149.99</p>
+    	    </div>
+        </div>
+        <div class="row">
+        	<div class="col-4" padding = "0px" align = "left">
+    		   <a href="product-details5.html"><img src="images/Vintage blue2.png" alt="Snow"></a>
+    		    <a href="product-details5.html"><h4>Mary Rose Blue Edition</h4></a>
+    		    <div class="rating">
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star"></i>
+    		        <i class="fa fa-star-o"></i>
+    		        <i class="fa fa-star-o"></i>
+    		    </div>
+    		    <p>$299.99</p>
+    	    </div>
+    	    <div class="col-4">
+    	    </div>
+    	    <div class="col-4">
+    	    </div>
+    	    <div class="col-4">
+    	    </div>
+    	</div>
+
+        <div class="page-btn">
+        	<span>1</span>
+        	<span>2</span>
+        	<span>3</span>
+        	<span>4</span>
+        	<span>&#8594;</span>
+        </div>
+    </div> 
+
+    <!--------- footer --------->
+    <div class="footer">
+    	<div class="container">
+    		<div class="row">
+    			<div class="footer-col-1">
+    				<h3>Download Our App</h3>
+    				<p>Download App for Android and ios mobile phone</p>
+    				<div class="app-logo">
+    					<img src="images/playstore.png" alt="Snow" width="50px" height="110px">
+    					<img src="images/app_store.png" alt="Snow" width="50px" height="110px">
+    				</div>
+    			</div>
+    			<div class="footer-col-2">
+    				<img src="images/Logo (4).jpeg" alt="Snow">
+    				<p>Our Purpose is To Sustainably Make the Pleasure and Benefits of Wine Accessible to the World</p>
+    			</div>
+    			<div class="footer-col-3">
+    				<h3>Useful Links</h3>
+    				<ul>
+    					<li>Coupons</li>
+    					<li>Blog Post</li>
+    					<li>Return Policy</li>
+    					<li>Join Affiliate</li>
+    				</ul>
+    			</div>
+    			<div class="footer-col-4">
+    				<h3>Follow us</h3>
+    				<ul>
+    					<li>Facebook</li>
+    					<li>Twitter</li>
+    					<li>Instagram</li>
+    					<li>Youtube</li>
+    				</ul>
+    			</div>
+    		</div>
+    		<hr>
+    		<p class="copyright">Copyright 2024 - Mary Rose</p>
+    	</div>
+    </div>
+
+    <!---------js for cart icon------------->
+    <script>
+    	function showCartImg()
+		{
+			let cart_pic1 = document.getElementById("cart_pic1");
+			cart_pic1.src = "images/cart red circle 1.png";
+			cartTotal();
+		}
+	</script>
+	
+    <!----------js for toggle menu----------->
+    <script>
+    	var MenuItems = document.getElementById("MenuItems");
+
+    	MenuItems.style.maxHeight = "0px";
+
+    	function menutoggle(){
+    		if(MenuItems.style.maxHeight == "0px")
+    		{
+    			MenuItems.style.maxHeight = "200px"
+    		}
+    		else
+    		{
+    		    MenuItems.style.maxHeight = "0px"	
+    		}
+    	}
+    </script>
+</body>
+</html>
