@@ -1,6 +1,5 @@
 <?php
 include('layouts/header.php');
-include('server/getcontact.php');
 ?>
   </div>
 </div>
