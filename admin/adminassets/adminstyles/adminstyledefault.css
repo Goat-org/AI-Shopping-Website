@@ -460,6 +460,30 @@
   .chartcontainer{
     margin-bottom: 20px;
   }
+/*----------Admin Local Network Traffic Page--------*/
+	.adminlocalnetworktraffictable{
+		font-family: 'Courier New'; 
+		font-size: small;
+		font-style: normal;
+		width: 100%;
+		text-align: center;
+	}
+
+	.adminlocalnetworktraffictitle{
+		text-align: center;
+	}
+
+/*----------Admin IDS Page--------*/
+	.adminidstable{
+		font-family: 'Courier New'; 
+		font-size: small;
+		font-style: normal;
+		width: 100%;
+	}
+
+	.adminidstitle{
+		text-align: center;
+	}
 
 /*----------Help--------*/
 	#contact-page span{
