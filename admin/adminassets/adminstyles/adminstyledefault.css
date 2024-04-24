@@ -469,7 +469,7 @@
 /*----------Admin Local Network Traffic Page--------*/
 	.adminlocalnetworktraffictable{
 		font-family: 'Courier New'; 
-		font-size: small;
+		font-size: 4px;
 		font-style: normal;
 		width: 100%;
 		text-align: center;
