@@ -24,6 +24,9 @@ include('adminserver/getadminlogout.php');
               <div class="adminidstablecontainer">
                 <div class="adminidstable">
                   <h1 class="adminidstitle">Adversarial Attack Intrusion Detection System</h1>
+                  <form action="adminpy/adminscript.py">
+                    <button class="btn" id="refreshbtn" type="submit">Refresh...</button>
+                  </form>
                   <div class="chartcontainer">
                       <canvas id="feature1Chart"></canvas>
                   </div>

@@ -1,5 +1,7 @@
 import csv
 import pyshark
+import subprocess
+
 
 def display_pcap_file(original_file_path, csv_file):
     try:
@@ -21,8 +23,8 @@ def display_pcap_file(original_file_path, csv_file):
                     src = packet.ip.src
                     dst = packet.ip.dst
                     proto = packet.layers[1].layer_name
-                    srcport = "no display"
-                    dstport = "no display"
+                    srcport = " "
+                    dstport = " "
                     length = packet.length
                 elif 'tcp' in packet.layers[1].layer_name:
                     src = packet.tcp.src
@@ -66,6 +68,12 @@ def display_pcap_file(original_file_path, csv_file):
     finally:
         # Close the pcap files
         cap.close()
+
+        # Specify the PHP file to open
+        php_file = "adminids.php"
+
+        # Open the PHP file using the default PHP interpreter
+        subprocess.call(["php", php_file])
 
 # Pcap File Path:
 original_file = "../adminjs/network_data/localnetworktraffic.pcap"

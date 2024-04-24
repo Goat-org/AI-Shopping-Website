@@ -1,3 +1,11 @@
+// Declare Empty Lists To Store Parsed Data
+const sourceIPs = [];
+const destinationIPs = [];
+const protocols = [];
+const sourcePorts = [];
+const destinationPorts = [];
+const lengths = [];
+
 // Function to read and parse CSV data
 function readCSV(url) {
     fetch(url)
@@ -5,14 +13,6 @@ function readCSV(url) {
         .then(data => {
             // Parse the CSV data
             const parsedData = parseCSV(data);
-
-            // Store the parsed data in variables
-            const sourceIPs = [];
-            const destinationIPs = [];
-            const protocols = [];
-            const sourcePorts = [];
-            const destinationPorts = [];
-            const lengths = [];
 
             // Populate the arrays with the parsed data
             parsedData.forEach(row => {
@@ -85,26 +85,12 @@ function generateBarChart(elementId, labels, data, label) {
   });
 }
 
-$(document).ready(function() {
-  $.ajax({
-      url: 'adminpy/adminscript.py',
-      type: 'GET',
-      success: function(response) {
-        // Handle the response from the server
-        console.log(response)
+// Call the readCSV function with the URL of your CSV file
+readCSV('adminjs/network_data/localnetworktraffic.csv');
 
-        // Call the readCSV function with the URL of your CSV file
-        readCSV('adminjs/network_data/localnetworktraffic.csv');
-
-        // Generate bar charts for each feature
-        generateBarChart("feature1Chart", sourceIPs, lengths, "Packet Lengths");
-        generateBarChart("feature2Chart", destinationIPs, lengths, "Packet Lengths");
-        generateBarChart("feature3Chart", protocols, lengths, "Packet Lengths");
-        generateBarChart("feature4Chart", sourcePorts, lengths, "Packet Lengths");
-        generateBarChart("feature5Chart", destinationPorts, lengths, "Packet Lengths");
-      },
-      error: function(error) {
-        window.location.href = "http://localhost:8000/admin/dashboard.php?errormessage=Error Opening Network File";
-      }
-  });
-});
+// Generate bar charts for each feature
+generateBarChart("feature1Chart", sourceIPs, lengths, "Packet Lengths");
+generateBarChart("feature2Chart", destinationIPs, lengths, "Packet Lengths");
+generateBarChart("feature3Chart", protocols, lengths, "Packet Lengths");
+generateBarChart("feature4Chart", sourcePorts, lengths, "Packet Lengths");
+generateBarChart("feature5Chart", destinationPorts, lengths, "Packet Lengths");

@@ -23,6 +23,15 @@ include('adminserver/getadminlogout.php');
             <div class="admindashboardcontainer">
               <div class="adminlocalnetworktraffictablecontainer">
                 <h1 class="adminidstitle">Local Area Network (LAN) Traffic</h1>
+                <h2 class="adminidstitle" style="color: black">Time:
+                  <?php
+                    //Path to python script
+                    $pythonScript = 'adminpy/test.py';
+                    // Execute command to run Python script in PHP. 
+                    $output = shell_exec("python {$pythonScript}");
+                    echo $output;
+                  ?>
+                </h2>
                 <table class="adminlocalnetworktraffictable">
                   <thead>
                     <tr>
