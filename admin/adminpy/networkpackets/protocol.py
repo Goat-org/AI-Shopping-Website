@@ -17,7 +17,10 @@ csv_data = read_csv_file(file_path)
 
 #3. Append packet data to list variable
 for row in csv_data:
-    proto_data.append(row[2])
+    if row[2] != "":
+      proto_data.append(row[2])
+    else:
+      proto_data.append("none")
 
 #4. Functions for returning Packet Attributes
 def protocol():

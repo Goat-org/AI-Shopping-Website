@@ -23,7 +23,7 @@ include('adminserver/getadminlogout.php');
             <div class="admindashboardcontainer">
               <div class="adminlocalnetworktraffictablecontainer">
                 <h1 class="adminidstitle">Local Area Network (LAN) Traffic</h1>
-                <h2 class="adminidstitle" id="localnetworktraffictime"></h2>
+                <h2 class="adminidstitle">Time: <p id="localnetworktraffictime"></p></h2>
                 <table class="adminlocalnetworktraffictable">
                   <thead>
                     <tr>
@@ -46,7 +46,7 @@ include('adminserver/getadminlogout.php');
                     </tr>
                   </tbody>
                 </table>
-                <script src="adminjs/adminscript.js"></script>
+                <script src="adminjs/adminlocalnetworktraffic.js"></script>
               </div>
             </div>
           </div>

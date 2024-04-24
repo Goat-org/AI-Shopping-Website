@@ -17,7 +17,10 @@ csv_data = read_csv_file(file_path)
 
 #3. Append packet data to list variable
 for row in csv_data:
-    src_adr_data.append(row[0])
+    if row[0] != "":
+      src_adr_data.append(row[0])
+    else:
+       src_adr_data.append("none")
 
 #4. Functions for returning Packet Attributes
 def sourceAddress():

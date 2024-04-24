@@ -17,7 +17,10 @@ csv_data = read_csv_file(file_path)
 
 #3. Append packet data to list variable
 for row in csv_data:
-    length_data.append(row[4])
+    if row[5] != "":
+      length_data.append(row[5])
+    else:
+       length_data.append("none")
 
 #4. Functions for returning Packet Attributes
 def lengths():
