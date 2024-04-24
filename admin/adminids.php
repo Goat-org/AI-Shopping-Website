@@ -23,8 +23,8 @@ include('adminserver/getadminlogout.php');
             <div class="admindashboardcontainer">
               <div class="adminidstablecontainer">
                 <div class="adminidstable">
-                  <h1 class="adminidstitle">Adversarial Attack Intrusion Detection System</h1>
-                  <h2 class="adminidstitle">Time: <p id="localnetworktraffictime"></p></h2>
+                  <h1 class="adminlocalnetworktraffictitle">Adversarial Attack Intrusion Detection System</h1>
+                  <h2 class="adminlocalnetworktraffictitle">Time: <p id="localnetworktraffictime"></p></h2>
                   <div class="chartcontainer">
                       <canvas id="feature1Chart"></canvas>
                   </div>

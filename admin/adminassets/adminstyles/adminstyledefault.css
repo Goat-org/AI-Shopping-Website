@@ -466,10 +466,11 @@
   .chartcontainer{
     margin-bottom: 20px;
   }
+
 /*----------Admin Local Network Traffic Page--------*/
 	.adminlocalnetworktraffictable{
 		font-family: 'Courier New'; 
-		font-size: 4px;
+		font-size: 10px;
 		font-style: normal;
 		width: 100%;
 		text-align: center;
@@ -477,6 +478,7 @@
 
 	.adminlocalnetworktraffictitle{
 		text-align: center;
+		font-size: medium;
 	}
 
 /*----------Admin IDS Page--------*/
@@ -1001,6 +1003,11 @@
 
 	.adminaddproductstablecontainer label{
 		width: 80px;
+	}
+
+/*----------Admin Local Network Traffic Page--------*/
+	.adminlocalnetworktraffictable{ 
+		font-size: 6px;
 	}
 }
 
@@ -1582,6 +1589,11 @@
 
 	.adminaddproductstablecontainer label{
 		width: 80px;
+	}
+
+/*----------Admin Local Network Traffic Page--------*/
+	.adminlocalnetworktraffictable{ 
+		font-size: 4px;
 	}
 }
 
