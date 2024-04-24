@@ -154,5 +154,5 @@ setInterval(function(){
   executeGetSourcePort();
   executeGetDestinationPort();
   executeGetLength();
-}, 5000);
+}, 1000);
 });
