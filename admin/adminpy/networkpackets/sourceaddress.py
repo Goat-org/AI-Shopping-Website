@@ -34,7 +34,7 @@ def sourceAddress():
   for item in temp:
     if item != "Source_Address":
       list_src_adr_data.append(item)
-
+      
   return list_src_adr_data
 
 #5. Call the function to return Packet data

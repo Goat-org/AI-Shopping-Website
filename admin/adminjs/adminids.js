@@ -1,166 +1,130 @@
-function executeGetTime(){
+function executeGetTime() {
     $.ajax({
         url: 'adminserver/networkpackets/gettime.php',
         method: 'GET',
         success: function(response) {
-            $('#localnetworktraffictime').html(response);
+        $('#localnetworktraffictime').html(response);
         },
         error: function(xhr, status, error) {
-            console.error(error);
+        console.error(error);
         }
     });
 }
-function executeGetSourceAddress(callback){
+
+function executeAjaxGetRequest(endpoint, callback) {
     $.ajax({
-        url: 'adminserver/networkpackets/getsourceaddress.php',
+        url: endpoint,
         method: 'GET',
         success: function(response) {
-            callback(response);
+        callback(response);
         },
         error: function(xhr, status, error) {
-            callback(null); // Pass null or an error indicator to the callback if there was an error
+        console.error(error);
+        callback(null);
         }
     });
 }
-function executeGetDestinationAddress(callback){
-    $.ajax({
-        url: 'adminserver/networkpackets/getdestinationaddress.php',
-        method: 'GET',
-        success: function(response) {
-            callback(response);
-        },
-        error: function(xhr, status, error) {
-            callback(null); // Pass null or an error indicator to the callback if there was an error
-        }
-    });
+
+function executeGetSourceAddress(callback) {
+    executeAjaxGetRequest('adminserver/networkpackets/getsourceaddress.php', callback);
 }
-function executeGetProtocol(callback){
-    $.ajax({
-        url: 'adminserver/networkpackets/getprotocol.php',
-        method: 'GET',
-        success: function(response) {
-            callback(response);
-        },
-        error: function(xhr, status, error) {
-            callback(null); // Pass null or an error indicator to the callback if there was an error
-        }
-    });
+
+function executeGetDestinationAddress(callback) {
+    executeAjaxGetRequest('adminserver/networkpackets/getdestinationaddress.php', callback);
 }
-function executeGetSourcePort(callback){
-    $.ajax({
-        url: 'adminserver/networkpackets/getsourceport.php',
-        method: 'GET',
-        success: function(response) {
-            callback(response);
-        },
-        error: function(xhr, status, error) {
-            callback(null); // Pass null or an error indicator to the callback if there was an error
-        }
-    });
+
+function executeGetProtocol(callback) {
+    executeAjaxGetRequest('adminserver/networkpackets/getprotocol.php', callback);
 }
+
+function executeGetSourcePort(callback) {
+    executeAjaxGetRequest('adminserver/networkpackets/getsourceport.php', callback);
+}
+
 function executeGetDestinationPort(callback) {
-    $.ajax({
-        url: 'adminserver/networkpackets/getdestinationport.php',
-        method: 'GET',
-        success: function(response) {
-            callback(response);
-        },
-        error: function(xhr, status, error) {
-            callback(null); // Pass null or an error indicator to the callback if there was an error
-        }
-    });
+    executeAjaxGetRequest('adminserver/networkpackets/getdestinationport.php', callback);
 }
-function executeGetLength(callback){
-    $.ajax({
-        url: 'adminserver/networkpackets/getlength.php',
-        method: 'GET',
-        success: function(response) {
-            callback(response);
-        },
-        error: function(xhr, status, error) {
-            callback(null); // Pass null or an error indicator to the callback if there was an error
-        }
-    });
+
+function executeGetLength(callback) {
+    executeAjaxGetRequest('adminserver/networkpackets/getlength.php', callback);
 }
-// Function to generate a bar chart
-function generateBarChart(elementId, labels, data, label) {
+
+function generateLineChart(elementId, labels, data, label) {
     var ctx = document.getElementById(elementId).getContext('2d');
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labels,
-            datasets: [{
-                label: label,
-                data: data,
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
+        labels: labels,
+        datasets: [{
+            label: label,
+            data: data,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            scales: {
-                y: {
-                beginAtZero: true
-                }
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+            y: {
+            beginAtZero: true
             }
+        }
         }
     });
 }
 
-$(document).ready(function(){
-    //Declare empty list variables
-    const sourceIPs = [];
-    const destinationIPs = [];
-    const protocols = [];
-    const sourcePorts = [];
-    const destinationPorts = [];
-    const lengths = [];
+$(document).ready(function() {
+let sourceIPs = [];
+let destinationIPs = [];
+let protocols = [];
+let sourcePorts = [];
+let destinationPorts = [];
+let lengths = [];
 
-    // Initial executions
+function updateCharts() {
     executeGetTime();
     executeGetSourceAddress(function(response) {
-        sourceIPs = response; // Handle the response here
-        executeGetLength(function(response) {
-            lengths = response; // Handle the response here
-            generateBarChart("feature1Chart", sourceIPs, lengths, "Packet Lengths");
-        });
+        if (response) {
+            sourceIPs = response.replace(/'/g, "").replace(/ /g, "").split(",");
+        }
     });
     executeGetDestinationAddress(function(response) {
-        destinationIPs = response; // Handle the response here
+        if (response) {
+            destinationIPs = response.replace(/'/g, "").replace(/ /g, "").split(",");
+        }
     });
     executeGetProtocol(function(response) {
-        protocols = response; // Handle the response here
+        if (response) {
+            protocols = response.replace(/'/g, "").replace(/ /g, "").split(",");
+        }
     });
     executeGetSourcePort(function(response) {
-        sourcePorts = response; // Handle the response here
+        if (response) {
+            sourcePorts = response.replace(/'/g, "").replace(/ /g, "").split(",");
+        }
     });
     executeGetDestinationPort(function(response) {
-        destinationPorts = response; // Handle the response here
+        if (response) {
+            destinationPorts = response.replace(/'/g, "").replace(/ /g, "").split(",");
+        }
     });
+    executeGetLength(function(response) {
+        if (response) {
+            lengths = response.replace(/'/g, "").replace(/ /g, "").split(",");
+            generateLineChart("feature1Chart", sourceIPs, lengths, "Packet Lengths");
+            generateLineChart("feature2Chart", destinationIPs, lengths, "Packet Lengths");
+            generateLineChart("feature3Chart", protocols, lengths, "Packet Lengths");
+            generateLineChart("feature4Chart", sourcePorts, lengths, "Packet Lengths");
+            generateLineChart("feature5Chart", destinationPorts, lengths, "Packet Lengths");
+        }
+    });
+}
 
-    // Generate bar charts for each feature
+// Initial executions
+updateCharts();
 
-    generateBarChart("feature2Chart", destinationIPs, lengths, "Packet Lengths");
-    generateBarChart("feature3Chart", protocols, lengths, "Packet Lengths");
-    generateBarChart("feature4Chart", sourcePorts, lengths, "Packet Lengths");
-    generateBarChart("feature5Chart", destinationPorts, lengths, "Packet Lengths");
-
-    // Execute PHP code every 5 seconds
-    setInterval(function(){
-        executeGetTime();
-        executeGetSourceAddress(function(response) {
-            sourceIPs = response; // Handle the response here     
-            executeGetLength(function(response) {
-                lengths = response; // Handle the response here
-                generateBarChart("feature1Chart", sourceIPs, lengths, "Packet Lengths");
-            });
-        });
-        executeGetDestinationAddress();
-        executeGetProtocol();
-        executeGetSourcePort();
-        executeGetDestinationPort();
-        executeGetLength();
-    }, 1000);
+// Execute PHP code every 1 second
+setInterval(updateCharts, 1000);
 });
