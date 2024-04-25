@@ -22,8 +22,8 @@ def sanitize_pcap_file(original_file_path, csv_file):
                     src = packet.ip.src
                     dst = packet.ip.dst
                     proto = packet.layers[1].layer_name
-                    srcport = " "
-                    dstport = " "
+                    srcport = "none"
+                    dstport = "none"
                     length = packet.length
                 elif 'tcp' in packet.layers[1].layer_name:
                     src = packet.tcp.src

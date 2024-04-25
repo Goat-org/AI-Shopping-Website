@@ -1,7 +1,9 @@
 import csv
+import re
 
 #1. Create Empty lists
 src_port_adr_data = []
+list_src_port_adr_data = []
 
 def read_csv_file(file_path):
   data = []
@@ -24,7 +26,16 @@ for row in csv_data:
 
 #4. Functions for returning Packet Attributes
 def sourcePort():
-  return src_port_adr_data
+  #Turn list into string
+  str = " ".join(src_port_adr_data)
+  #Turn string back into list
+  temp = str.split()
+  #Iterate through list
+  for item in temp:
+    if item != "Source_Port":
+      list_src_port_adr_data.append(item)
+
+  return list_src_port_adr_data
 
 #5. Call the function to return Packet data
 print(sourcePort())

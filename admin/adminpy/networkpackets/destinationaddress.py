@@ -1,7 +1,9 @@
 import csv
+import re
 
 #1. Create Empty lists
 dst_adr_data = []
+list_dst_adr_data = []
 
 def read_csv_file(file_path):
   data = []
@@ -24,7 +26,16 @@ for row in csv_data:
 
 #4. Functions for returning Packet Attributes
 def destinationAddress():
-  return dst_adr_data
+  #Turn list into string
+  str = " ".join(dst_adr_data)
+  #Turn string back into list
+  temp = str.split()
+  #Iterate through list
+  for item in temp:
+    if item != "Destination_Address":
+      list_dst_adr_data.append(item)
+
+  return list_dst_adr_data
 
 #5. Call the function to return Packet data
 print(destinationAddress())

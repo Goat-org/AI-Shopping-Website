@@ -1,7 +1,9 @@
 import csv
+import re
 
 #1. Create Empty lists
 length_data = []
+list_length_data = []
 
 def read_csv_file(file_path):
   data = []
@@ -24,7 +26,16 @@ for row in csv_data:
 
 #4. Functions for returning Packet Attributes
 def lengths():
-  return length_data
+  #Turn list into string
+  str = " ".join(length_data)
+  #Turn string back into list
+  temp = str.split()
+  #Iterate through list
+  for item in temp:
+    if item != "Length":
+      list_length_data.append(item)
+
+  return list_length_data
 
 #5. Call the function to return Packet data
 print(lengths())
