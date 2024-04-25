@@ -15,6 +15,14 @@ function executeAjaxGetRequest(endpoint, callback) {
     $.ajax({
         url: endpoint,
         method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-XSS-Protection': '1; mode=block',
+            'X-Content-Type-Options': 'nosniff',
+            'X-Frame-Options': 'DENY',
+            'Referrer-Policy': 'no-referrer'
+        },
         success: function(response) {
         callback(response);
         },

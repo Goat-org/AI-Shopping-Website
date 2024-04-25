@@ -1,6 +1,5 @@
 import csv
 import pyshark
-import subprocess
 
 # Create Empty lists
 src_adr_data = []
