@@ -15,6 +15,20 @@ if(isset($_POST['adminaddproductsbtn'])){
   $productprice = $_POST['fldproductprice'];
   $productdiscount = $_POST['fldproductdiscount'];
   $productdiscountcode = $_POST['fldproductdiscountcode'];
+  $productlength = $_POST['fldproductlength'];
+  $productwidth = $_POST['fldproductwidth'];
+  $productheight = $_POST['fldproductheight'];
+  $productweight = $_POST['fldproductweight'];
+  $productfragile = $_POST['fldproductfragile'];
+  $productspecialhandlingreq = $_POST['fldproductspecialhandlingreq'];
+  $productinsurancereq = $_POST['fldproductinsurancereq'];
+  $productaddressline1 = $_POST['fldproductaddressline1'];
+  $productaddressline2 = $_POST['fldproductaddressline2'];
+  $productpostalcode = $_POST['fldproductpostalcode'];
+  $productcity = $_POST['fldproductcity'];
+  $productcountry = $_POST['fldproductcountry'];
+  $productowner = $_POST['fldproductowner'];
+
 
   //The Image File
   $target_dir = $_SERVER['DOCUMENT_ROOT']."/assets/images/";
@@ -47,9 +61,9 @@ if(isset($_POST['adminaddproductsbtn'])){
   $check6 = getimagesize($productimage6);
 
   // Check image file sizes
-  if($_FILES["fldproductimage"]["size"] > 500000 && $_FILES["fldproductimage1"]["size"] > 500000 && $_FILES["fldproductimage2"]["size"] > 500000 && $_FILES["fldproductimage3"]["size"] > 500000 && $_FILES["fldproductimage4"]["size"] > 500000 && $_FILES["fldproductimage5"]["size"] > 500000 && $_FILES["fldproductimage6"]["size"] > 500000){
+  if($_FILES["fldproductimage"]["size"] > 10000000 && $_FILES["fldproductimage1"]["size"] > 10000000 && $_FILES["fldproductimage2"]["size"] > 10000000 && $_FILES["fldproductimage3"]["size"] > 10000000 && $_FILES["fldproductimage4"]["size"] > 10000000 && $_FILES["fldproductimage5"]["size"] > 10000000 && $_FILES["fldproductimage6"]["size"] > 10000000){
     $uploadOk = 0;
-    header('location: ../admin/adminaddproducts.php?editmessage=Error Occured, Your File Is Too Large.');
+    header('location: ../admin/adminaddproducts.php?errormessage=Error Occured, Your File Is Too Large.');
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -156,12 +170,12 @@ if(isset($_POST['adminaddproductsbtn'])){
   // Check if file already exists
   if(file_exists($target_file)){
     $uploadOk = 0;
-    header('location: ../admin/adminaddproducts.php?editmessage=Error Occured, File Already Exists.');
+    header('location: ../admin/adminaddproducts.php?errormessage=Error Occured, File Already Exists.');
   }
   
   // Check if $uploadOk is set to 0 by an error
   if($uploadOk == 0){
-    header('location: ../admin/adminaddproducts.php?errormessage=Unexpected Error, Please Try Again.');
+    header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Error, Please Try Again!');
   }
   else{// if everything is ok, try to Upload File
     if(move_uploaded_file($_FILES["fldproductimage"]["tmp_name"], $target_file)){
@@ -203,9 +217,9 @@ if(isset($_POST['adminaddproductsbtn'])){
   }
 
   //1. insert in Products Table
-  $stmt = $conn->prepare("INSERT INTO products (fldproductname,fldproductdepartment,fldproductcategory,fldproducttype,fldproductcolor,fldproductgender,fldproductsize,fldproductstock,fldproductdescription,fldproductimage,fldproductimage1,fldproductimage2,fldproductimage3,fldproductimage4,fldproductimage5,fldproductimage6,fldproductprice,fldproductdiscount,fldproductdiscountcode)
-  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-  $stmt->bind_param('sssssssssssssssssss',$productname,$productdepartment,$productcategory,$producttype,$productcolor,$productgender,$productsize,$productstock,$productdescription,$productimagename,$productimagename1,$productimagename2,$productimagename3,$productimagename4,$productimagename5,$productimagename6,$productprice,$productdiscount,$productdiscountcode); 
+  $stmt = $conn->prepare("INSERT INTO products (fldproductname,fldproductdepartment,fldproductcategory,fldproducttype,fldproductcolor,fldproductgender,fldproductsize,fldproductstock,fldproductdescription,fldproductimage,fldproductimage1,fldproductimage2,fldproductimage3,fldproductimage4,fldproductimage5,fldproductimage6,fldproductprice,fldproductdiscount,fldproductdiscountcode,fldproductlength,fldproductwidth,fldproductheight,fldproductweight,fldproductfragile,fldproductspecialhandlingreq,fldproductinsurancereq,fldproductaddressline1,fldproductaddressline2,fldproductpostalcode,fldproductcity,fldproductcountry,fldproductowner)
+  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+  $stmt->bind_param('ssssssssssssssssssssssssssssssss',$productname,$productdepartment,$productcategory,$producttype,$productcolor,$productgender,$productsize,$productstock,$productdescription,$productimagename,$productimagename1,$productimagename2,$productimagename3,$productimagename4,$productimagename5,$productimagename6,$productprice,$productdiscount,$productdiscountcode,$productlength,$productwidth,$productheight,$productweight,$productfragile,$productspecialhandlingreq,$productinsurancereq,$productaddressline1,$productaddressline2,$productpostalcode,$productcity,$productcountry,$productowner); 
   //1.2 Issue New Product ID & store Product info in Database
   $_SESSION['fldproductid'] = $productid = $stmt->insert_id;
   

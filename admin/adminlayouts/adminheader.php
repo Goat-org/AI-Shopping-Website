@@ -39,8 +39,9 @@ session_start();
 				<a href="dashboard.php">Dashboard</a>
 				<a href="adminorders.php">Orders</a>
 				<a href="adminproducts.php">Products</a>
-				<a href="admincustomers.php">Customers</a>
 				<a href="adminaddproducts.php">Create Product</a>
+				<a href="admincustomers.php">Customers</a>
+				<a href="adminproductsellers.php">Product Sellers</a>
 				<a href="adminlocalnetworktraffic.php">LAN Traffic</a>
 				<a href="adminids.php">IDS</a>
 				<a href="adminaccount.php">Account</a>

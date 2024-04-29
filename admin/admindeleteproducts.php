@@ -20,8 +20,8 @@ include('adminserver/getadmindeleteproducts.php');
                 <img src="<?php echo "../../assets/images/". $product['fldproductimage']; ?>">
                 <p><?php echo $product['fldproductname']; ?></p>
                 <p>R<?php echo $product['fldproductprice']; ?></p>
-                <p><?php echo $product['fldproductdescription']; ?></p>
-                <p><?php echo $product['fldproductspecialoffer']; ?></p>
+                <p><?php echo $product['fldproductdepartment']; ?></p>
+                <p><?php echo $product['fldproductcategory']; ?></p>
                 <p><?php echo $product['fldproducttype']; ?></p>
                 <div class="admindeleteproductstable">
                   <p>Are You Sure You Want To Delete The Product. Changes Made Cannot Be Undone.</p>
