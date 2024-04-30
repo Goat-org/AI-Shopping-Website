@@ -1,13 +1,5 @@
-import csv
 import pyshark
-
-# Create Empty lists
-src_adr_data = []
-dst_adr_data = []
-proto_data = []
-src_port_adr_data = []
-dst_port_adr_data = []
-length_data = []
+import csv
 
 def sanitize_pcap_file(original_file_path, csv_file):
     try:
@@ -20,24 +12,54 @@ def sanitize_pcap_file(original_file_path, csv_file):
                 if 'ip' in packet.layers[1].layer_name:
                     src = packet.ip.src
                     dst = packet.ip.dst
-                    proto = packet.layers[1].layer_name
-                    srcport = "none"
-                    dstport = "none"
                     length = packet.length
-                elif 'tcp' in packet.layers[1].layer_name:
-                    src = packet.tcp.src
-                    dst = packet.tcp.dst
-                    proto = packet.layers[1].layer_name
-                    srcport = packet.tcp.srcport
-                    dstport = packet.tcp.dstport
-                    length = packet.length
-                elif 'udp' in packet.layers[1].layer_name:
-                    src = packet.udp.src
-                    dst = packet.udp.dst
-                    proto = packet.layers[1].layer_name
-                    srcport = packet.udp.srcport
-                    dstport = packet.udp.dstport
-                    length = packet.length
+                    #Check for Protocol Number to match with Name
+                    if packet.ip.proto == "1":
+                        proto = "ICMP"
+                    elif packet.ip.proto == "2":
+                        proto = "IGMP"
+                    elif packet.ip.proto == "4":
+                        proto = "IPIP"
+                    elif packet.ip.proto == "6":
+                        proto = "TCP"
+                    elif packet.ip.proto == "8":
+                        proto = "EGP"
+                    elif packet.ip.proto == "9":
+                        proto = "IGRP"
+                    elif packet.ip.proto == "17":
+                        proto = "UDP"
+                    elif packet.ip.proto == "33":
+                        proto = "DCCP"
+                    elif packet.ip.proto == "41":
+                        proto = "IPv6"
+                    elif packet.ip.proto == "46":
+                        proto = "RSVP"
+                    elif packet.ip.proto == "47":
+                        proto = "GRE"
+                    elif packet.ip.proto == "50":
+                        proto = "ESP"
+                    elif packet.ip.proto == "51":
+                        proto = "AH"
+                    elif packet.ip.proto == "83":
+                        proto = "VINES"
+                    elif packet.ip.proto == "88":
+                        proto = "EIGRP"
+                    elif packet.ip.proto == "89":
+                        proto = "OSPF"
+                    elif packet.ip.proto == "103":
+                        proto = "PIM"
+                    elif packet.ip.proto == "112":
+                        proto = "VRRP"
+                    elif packet.ip.proto == "115":
+                        proto = "L2TP"
+                    elif packet.ip.proto == "132":
+                        proto = "SCTP"
+                    else:
+                        proto = packet.ip.proto
+                    #Open User Datagram Layer in Wireshark
+                    if "udp" in packet.layers[2].layer_name:
+                        srcport = packet.udp.srcport
+                        dstport = packet.udp.dstport
                 else:
                     continue
                 f.write(f'{src},{dst},{proto},{srcport},{dstport},{length}\n')
@@ -49,7 +71,6 @@ def sanitize_pcap_file(original_file_path, csv_file):
                 for row in csv_reader:
                     data.append(row)
             return data
-
     finally:
         # Close the pcap files
         cap.close()

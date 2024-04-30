@@ -32,7 +32,8 @@ include('adminserver/getadminlogout.php');
                     <th scope="col">Seller Country</th>
                     <th scope="col">Seller Email</th>
                     <th scope="col">Seller Phone Number</th>
-                    <th scope="col">Product Details</th>
+                    <th scope="col">Manage Seller's Products</th>
+                    <th scope="col">Seller's Products Approvals</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,7 +48,8 @@ include('adminserver/getadminlogout.php');
                     <td><?php echo $sellers['fldproductsellerscountry']; ?></td>
                     <td><?php echo $sellers['fldproductsellersemail']; ?></td>
                     <td><?php echo $sellers['fldproductsellersphonenumber']; ?></td>
-                    <td><a class="btn btn-primary" href="<?php echo "adminviewproductsellers.php?fldproductsellersid=".$sellers['fldproductsellersid'];?>">Manage Sellers Products</a></td>
+                    <td><a class="btn btn-primary" href="<?php echo "adminviewproductsellers.php?fldproductsellersid=".$sellers['fldproductsellersid'];?>">Manage Products</a></td>
+                    <td><a class="btn btn-primary" href="<?php echo "adminviewproductsellersapprovals.php?fldproductsellersid=".$sellers['fldproductsellersid'];?>">Products Approvals</a></td>
                   </tr>
                   <?php } ?>
                 </tbody>
