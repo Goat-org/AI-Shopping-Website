@@ -5,10 +5,10 @@ if(!isset($_SESSION['adminlogged_in'])){
   header('location: adminlogin.php');
   exit;
 }
-include('adminserver/getadmindeleteproducts.php');
+include('adminserver/getadmindeletesellersproducts.php');
 ?>
   <body>
-    <!--------- Admin-Delete-Product-Page ------------>
+    <!--------- Admin-Delete-Sellers-Product-Page ------------>
     <section class="dashboard">
       <div class="dashboardcontainer" id="dashboardcontainer">
         <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
@@ -26,10 +26,11 @@ include('adminserver/getadmindeleteproducts.php');
                 <div class="admindeleteproductstable">
                   <p>Are You Sure You Want To Delete The Product. Changes Made Cannot Be Undone.</p>
                     <div class="adminbtn">
-                      <form method="POST" action="admindeleteproducts.php">
-                        <input class="btn" id="cancelbtn" name="admincancelproductsbtn" type="submit" value="Cancel" style="width: 270px;"/>
+                      <form method="POST" action="admindeletesellersproducts.php">
+                        <input class="btn" id="cancelbtn" name="admincancelsellersproductsbtn" type="submit" value="Cancel" style="width: 270px;"/>
                         <input type="hidden" name="fldproductid" value="<?php echo $product['fldproductid']; ?>"/>
-                        <input class="btn" id="deletebtn" name="admindeleteproductsbtn" type="submit" value="Delete" style="width: 270px;"/>
+                        <input type="hidden" name="fldproductsellersid" value="<?php echo $product['fldproductsellersid']; ?>"/>
+                        <input class="btn" id="deletebtn" name="admindeletesellersproductsbtn" type="submit" value="Delete" style="width: 270px;"/>
                       </form>
                     </div>
                     <?php } ?>

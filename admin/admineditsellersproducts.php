@@ -7,12 +7,12 @@ if(!isset($_SESSION['adminlogged_in'])){
 }
 else{
   //Check For Product Id GET or POST request
-  if(isset($_GET['fldproductsellersid']) && isset($_GET['fldproductid'])){
+  if(isset($_GET['fldproductid']) && isset($_GET['fldproductsellersid'])){
     if(isset($_GET['fldproductsellersid'])){
-      $productsellersid = $_GET['fldproductsellersid'];
+      $productid = $_GET['fldproductid'];
     }
     elseif(isset($_GET['fldproductsellersid'])){
-      $productsellersid = $_POST['fldproductsellersid'];
+      $productsellersid = $_GET['fldproductsellersid'];
     }
     else{
       header('location: dashboard.php?errormessage=No product sellers id found.');      
@@ -31,7 +31,7 @@ include('adminserver/getadmineditsellersproducts.php');
         <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
           <p class="text-center" style="color: green"><?php if(isset($_GET['editmessage'])){ echo $_GET['editmessage']; }?></p>
           <p class="text-center" style="color: red"><?php if(isset($_GET['errormessage'])){ echo $_GET['errormessage']; }?></p>
-          <h3>Edit Product Sellers Products</h3>
+          <h3>Edit Sellers Product</h3>
           <hr class="mx-auto">
           <div class="dashboardadmininfo">
             <p>Name: <span><?php if(isset($_SESSION['fldadminname'])){ echo $_SESSION['fldadminname']; }?></span> Position: <span><?php if(isset($_SESSION['fldadminposition'])){ echo $_SESSION['fldadminposition']; }?></span> Department: <span><?php if(isset($_SESSION['fldadmindepartment'])){ echo $_SESSION['fldadmindepartment']; }?></span></p>

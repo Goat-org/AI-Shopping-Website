@@ -14,7 +14,7 @@ include('adminserver/getadminlogout.php');
         <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
           <p class="text-center" style="color: green"><?php if(isset($_GET['editmessage'])){ echo $_GET['editmessage']; }?></p>
           <p class="text-center" style="color: red"><?php if(isset($_GET['errormessage'])){ echo $_GET['errormessage']; }?></p>
-          <h3>View Product Sellers Products</h3>
+          <h3>View Sellers Products</h3>
           <hr class="mx-auto">
           <div class="dashboardadmininfo">
             <p>Name: <span><?php if(isset($_SESSION['fldadminname'])){ echo $_SESSION['fldadminname']; }?></span> Position: <span><?php if(isset($_SESSION['fldadminposition'])){ echo $_SESSION['fldadminposition']; }?></span> Department: <span><?php if(isset($_SESSION['fldadmindepartment'])){ echo $_SESSION['fldadmindepartment']; }?></span></p>
@@ -51,7 +51,7 @@ include('adminserver/getadminlogout.php');
                     <td><?php echo $product['fldproductstock']; ?></td>
                     <td><?php echo $product['fldproductprice']; ?></td>
                     <td><?php echo $product['fldproductdiscount']; ?>%</td>
-                    <td><a class="btn btn-primary" href="admineditsellersproducts.php?fldproductid=<?php echo $product['fldproductid'];?>&fldproductsellersid=<?php echo $product['fldproductsellersid'];?>">Edit Images</a></td>
+                    <td><a class="btn btn-primary" href="admineditsellersproductsimages.php?fldproductid=<?php echo $product['fldproductid'];?>&fldproductsellersid=<?php echo $product['fldproductsellersid'];?>">Edit Images</a></td>
 
                     <td><a class="btn btn-primary" href="admineditsellersproducts.php?fldproductid=<?php echo $product['fldproductid'];?>&fldproductsellersid=<?php echo $product['fldproductsellersid'];?>">Edit</a></td>
                     

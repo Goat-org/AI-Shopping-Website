@@ -188,6 +188,8 @@ if(isset($_POST['admineditimagesbtn'])){
     }
   }
 
+  $productid = $_POST['fldproductid'];
+
   //Update Product Images
   $stmt = $conn->prepare("UPDATE products SET fldproductimage=?, fldproductimage1=?, fldproductimage2=?, fldproductimage3=?, fldproductimage4=?, fldproductimage5=?, fldproductimage6=? WHERE fldproductid=?");
 

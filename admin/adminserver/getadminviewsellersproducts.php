@@ -11,9 +11,9 @@
   }
 
   if(isset($_GET['fldproductsellersid'])){
-    $_SESSION['fldproductsellersid'] = $_GET['fldproductsellersid'];
+    $_SESSION['fldtempproductsellersid'] = $_GET['fldproductsellersid'];
   }
-  $productsellersid = $_SESSION['fldproductsellersid'];
+  $productsellersid = $_SESSION['fldtempproductsellersid'];
 
   //2. return number of products
   $stmt = $conn->prepare("SELECT COUNT(*) AS fldtotalrecords FROM products");

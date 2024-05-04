@@ -1,36 +1,7 @@
 <?php
 include('adminconnection.php');
-//Add New Product
-if(isset($_POST['adminaddproductsbtn'])){
-  $productid = $_POST['fldproductid'];
-  $productsellersid = $_SESSION['fldproductsellersid'];
-  $productowner = $_SESSION['fldproductowner'];
-  $productname = $_POST['fldproductname'];
-  $productdepartment = $_POST['fldproductdepartment'];
-  $productcategory = $_POST['fldproductcategory'];
-  $producttype = $_POST['fldproducttype'];
-  $productcolor = $_POST['fldproductcolor'];
-  $productgender = $_POST['fldproductgender'];
-  $productsize = $_POST['fldproductsize'];
-  $productstock = $_POST['fldproductstock'];
-  $productdescription = $_POST['fldproductdescription'];
-  $productprice = $_POST['fldproductprice'];
-  $productdiscount = $_POST['fldproductdiscount'];
-  $productdiscountcode = $_POST['fldproductdiscountcode'];
-  $productlength = $_POST['fldproductlength'];
-  $productwidth = $_POST['fldproductwidth'];
-  $productheight = $_POST['fldproductheight'];
-  $productweight = $_POST['fldproductweight'];
-  $productfragile = $_POST['fldproductfragile'];
-  $productspecialhandlingreq = $_POST['fldproductspecialhandlingreq'];
-  $productinsurancereq = $_POST['fldproductinsurancereq'];
-  $productaddressline1 = $_POST['fldproductaddressline1'];
-  $productaddressline2 = $_POST['fldproductaddressline2'];
-  $productpostalcode = $_POST['fldproductpostalcode'];
-  $productcity = $_POST['fldproductcity'];
-  $productcountry = $_POST['fldproductcountry'];
-
-
+//Edit Product Details
+if(isset($_POST['admineditsellersproductsimagesbtn'])){
   //The Image File
   $target_dir = $_SERVER['DOCUMENT_ROOT']."/assets/images/";
   $productimage = basename($_FILES["fldproductimage"]["name"]);
@@ -100,17 +71,17 @@ if(isset($_POST['adminaddproductsbtn'])){
   else if($imageFileType6 != "jpg" && $imageFileType6 != "png" && $imageFileType6 != "jpeg"
   && $imageFileType6 != "gif"){
     $uploadOk = 0;
-    header('location: ../admin/admineditimages.php?errormessage=Error Occured, Only JPG, JPEG, PNG & GIF Files Are Allowed.');
+    header('location: ../admin/admineditsellersproductsimages.php?errormessage=Error Occured, Only JPG, JPEG, PNG & GIF Files Are Allowed.');
   }
   else if($imageFileType == "jpg" && $imageFileType1 == "jpg" && $imageFileType2 == "jpg" && $imageFileType3 == "jpg" && $imageFileType4 == "jpg" && $imageFileType5 == "jpg" && $imageFileType6 == "jpg"){
     //Image Names
-    $productimagename = $productname.".jpg";
-    $productimagename1 = $productname." 1.jpg";
-    $productimagename2 = $productname." 2.jpg";
-    $productimagename3 = $productname." 3.jpg";
-    $productimagename4 = $productname." 4.jpg";
-    $productimagename5 = $productname." 5.jpg";
-    $productimagename6 = $productname." 6.jpg";
+    $productimagename = $productname.uniqid().".jpg";
+    $productimagename1 = $productname.uniqid()." 1.jpg";
+    $productimagename2 = $productname.uniqid()." 2.jpg";
+    $productimagename3 = $productname.uniqid()." 3.jpg";
+    $productimagename4 = $productname.uniqid()." 4.jpg";
+    $productimagename5 = $productname.uniqid()." 5.jpg";
+    $productimagename6 = $productname.uniqid()." 6.jpg";
     $target_file = $target_dir.$productimagename;
     $target_file1 = $target_dir.$productimagename1;
     $target_file2 = $target_dir.$productimagename2;
@@ -120,13 +91,13 @@ if(isset($_POST['adminaddproductsbtn'])){
     $target_file6 = $target_dir.$productimagename6;
   }
   else if($imageFileType == "jpeg" && $imageFileType1 == "jpeg" && $imageFileType2 == "jpeg" && $imageFileType3 == "jpeg" && $imageFileType4 == "jpeg" && $imageFileType5 == "jpeg" && $imageFileType6 == "jpeg"){
-    $productimagename = $productname.".jpeg";
-    $productimagename1 = $productname." 1.jpeg";
-    $productimagename2 = $productname." 2.jpeg";
-    $productimagename3 = $productname." 3.jpeg";
-    $productimagename4 = $productname." 4.jpeg";
-    $productimagename5 = $productname." 5.jpeg";
-    $productimagename6 = $productname." 6.jpeg";
+    $productimagename = $productname.uniqid().".jpeg";
+    $productimagename1 = $productname.uniqid()." 1.jpeg";
+    $productimagename2 = $productname.uniqid()." 2.jpeg";
+    $productimagename3 = $productname.uniqid()." 3.jpeg";
+    $productimagename4 = $productname.uniqid()." 4.jpeg";
+    $productimagename5 = $productname.uniqid()." 5.jpeg";
+    $productimagename6 = $productname.uniqid()." 6.jpeg";
     $target_file = $target_dir.$productimagename;
     $target_file1 = $target_dir.$productimagename1;
     $target_file2 = $target_dir.$productimagename2;
@@ -136,13 +107,13 @@ if(isset($_POST['adminaddproductsbtn'])){
     $target_file6 = $target_dir.$productimagename6;
   }
   else if($imageFileType == "png" && $imageFileType1 == "png" && $imageFileType2 == "png" && $imageFileType3 == "png" && $imageFileType4 == "png" && $imageFileType5 == "png" && $imageFileType6 == "png"){
-    $productimagename = $productname.".png";
-    $productimagename1 = $productname." 1.png";
-    $productimagename2 = $productname." 2.png";
-    $productimagename3 = $productname." 3.png";
-    $productimagename4 = $productname." 4.png";
-    $productimagename5 = $productname." 5.png";
-    $productimagename6 = $productname." 6.png";
+    $productimagename = $productname.uniqid().".png";
+    $productimagename1 = $productname.uniqid()." 1.png";
+    $productimagename2 = $productname.uniqid()." 2.png";
+    $productimagename3 = $productname.uniqid()." 3.png";
+    $productimagename4 = $productname.uniqid()." 4.png";
+    $productimagename5 = $productname.uniqid()." 5.png";
+    $productimagename6 = $productname.uniqid()." 6.png";
     $target_file = $target_dir.$productimagename;
     $target_file1 = $target_dir.$productimagename1;
     $target_file2 = $target_dir.$productimagename2;
@@ -152,13 +123,13 @@ if(isset($_POST['adminaddproductsbtn'])){
     $target_file6 = $target_dir.$productimagename6;
   }
   else if($imageFileType == "gif" && $imageFileType1 == "gif" && $imageFileType2 == "gif" && $imageFileType3 == "gif" && $imageFileType4 == "gif" && $imageFileType5 == "gif" && $imageFileType6 == "gif"){
-    $productimagename = $productname.".gif";
-    $productimagename1 = $productname." 1.gif";
-    $productimagename2 = $productname." 2.gif";
-    $productimagename3 = $productname." 3.gif";
-    $productimagename4 = $productname." 4.gif";
-    $productimagename5 = $productname." 5.gif";
-    $productimagename6 = $productname." 6.gif";
+    $productimagename = $productname.uniqid().".gif";
+    $productimagename1 = $productname.uniqid()." 1.gif";
+    $productimagename2 = $productname.uniqid()." 2.gif";
+    $productimagename3 = $productname.uniqid()." 3.gif";
+    $productimagename4 = $productname.uniqid()." 4.gif";
+    $productimagename5 = $productname.uniqid()." 5.gif";
+    $productimagename6 = $productname.uniqid()." 6.gif";
     $target_file = $target_dir.$productimagename;
     $target_file1 = $target_dir.$productimagename1;
     $target_file2 = $target_dir.$productimagename2;
@@ -169,14 +140,14 @@ if(isset($_POST['adminaddproductsbtn'])){
   }
 
   // Check if file already exists
-  if(file_exists($target_file)){
+  if(file_exists($target_file || $target_file1 || $target_file2 || $target_file3 || $target_file4 || $target_file5 || $target_file6)){
     $uploadOk = 0;
-    header('location: ../admin/adminaddproducts.php?errormessage=Error Occured, File Already Exists.');
+    header('location: ../admin/admineditsellersproductsimages.php?errormessage=Error Occured, File Already Exists.');
   }
   
   // Check if $uploadOk is set to 0 by an error
   if($uploadOk == 0){
-    header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Error, Please Try Again!');
+    header('location: ../admin/admineditsellersproductsimages.php?errormessage=Unexpected Error, Please Try Again.');
   }
   else{// if everything is ok, try to Upload File
     if(move_uploaded_file($_FILES["fldproductimage"]["tmp_name"], $target_file)){
@@ -189,45 +160,57 @@ if(isset($_POST['adminaddproductsbtn'])){
 
                 }
                 else{
-                  header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Failed, Try Again.');
+                  header('location: ../admin/admineditsellersproductsimages.php?errormessage=Image Upload Failed, Try Again.');
                 }
               }
               else{
-                header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Failed, Try Again.');
+                header('location: ../admin/admineditsellersproductsimages.php?errormessage=Image Upload Failed, Try Again.');
               }
             }
             else{
-              header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Failed, Try Again.');
+              header('location: ../admin/admineditsellersproductsimages.php?errormessage=Image Upload Failed, Try Again.');
             }
           }
           else{
-            header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Failed, Try Again.');
+            header('location: ../admin/admineditsellersproductsimages.php?errormessage=Image Upload Failed, Try Again.');
           }
         }
         else{
-          header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Failed, Try Again.');
+          header('location: ../admin/admineditsellersproductsimages.php?errormessage=Image Upload Failed, Try Again.');
         }
       }
       else{
-        header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Failed, Try Again.');
+        header('location: ../admin/admineditsellersproductsimages.php?errormessage=Image Upload Failed, Try Again.');
       }
     }
     else{
-      header('location: ../admin/adminaddproducts.php?errormessage=Image Upload Failed, Try Again.');
+      header('location: ../admin/admineditsellersproductsimages.php?errormessage=Image Upload Failed, Try Again.');
     }
   }
 
-  //1. insert in Products Table
-  $stmt = $conn->prepare("INSERT INTO products (fldproductname,fldproductdepartment,fldproductcategory,fldproducttype,fldproductcolor,fldproductgender,fldproductsize,fldproductstock,fldproductdescription,fldproductimage,fldproductimage1,fldproductimage2,fldproductimage3,fldproductimage4,fldproductimage5,fldproductimage6,fldproductprice,fldproductdiscount,fldproductdiscountcode,fldproductlength,fldproductwidth,fldproductheight,fldproductweight,fldproductfragile,fldproductspecialhandlingreq,fldproductinsurancereq,fldproductaddressline1,fldproductaddressline2,fldproductpostalcode,fldproductcity,fldproductcountry,fldproductowner)
-  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-  $stmt->bind_param('ssssssssssssssssssssssssssssssss',$productname,$productdepartment,$productcategory,$producttype,$productcolor,$productgender,$productsize,$productstock,$productdescription,$productimagename,$productimagename1,$productimagename2,$productimagename3,$productimagename4,$productimagename5,$productimagename6,$productprice,$productdiscount,$productdiscountcode,$productlength,$productwidth,$productheight,$productweight,$productfragile,$productspecialhandlingreq,$productinsurancereq,$productaddressline1,$productaddressline2,$productpostalcode,$productcity,$productcountry,$productowner); 
-  //1.2 Issue New Product ID & store Product info in Database
-  $_SESSION['fldproductid'] = $productid = $stmt->insert_id;
-  
+  $productid = $_POST['fldproductid'];
+  $productsellersid = $_POST['fldproductsellersid'];
+
+  //Update Product Images
+  $stmt = $conn->prepare("UPDATE products SET fldproductimage=?, fldproductimage1=?, fldproductimage2=?, fldproductimage3=?, fldproductimage4=?, fldproductimage5=?, fldproductimage6=? WHERE fldproductid=? AND fldproductsellersid=?");
+
+  $stmt->bind_param('sssssssii',$productimagename,$productimagename1,$productimagename2,$productimagename3,$productimagename4,$productimagename5,$productimagename6,$productid,$productsellersid);
+    
   if($stmt->execute()){
-    header('location: ../admin/adminaddproducts.php?editmessage=Product Added Succesfully!');
+    header('location: ../admin/adminsellers.php?editmessage=Images Changed Succesfully!');
   }
   else{
-    header('location: ../admin/adminaddproducts.php?errormessage=Error Occured, Try Again Later.');
+    header('location: ../admin/adminsellers.php?errormessage=Error Occured, Try Again.');
   }
 }
+else{//no product id was given
+  header('admin/dashboard.php?errormessage=Something went wrong!');
+}
+
+$productid = $_GET['fldproductid'];
+$productsellersid = $_GET['fldproductsellersid'];
+$stmt = $conn->prepare("SELECT * FROM products WHERE fldproductid=? AND fldproductsellersid=?");
+$stmt->bind_param("ii",$productid,$productsellersid);
+$stmt->execute();
+// This is an array of 1 product
+$product = $stmt->get_result();
