@@ -22,7 +22,7 @@ else{
     header('location: dashboard.php?errormessage=No product sellers id found.');
   }
 }
-include('adminserver/getadmineditproductsellersproduct.php');
+include('adminserver/getadmineditsellersproducts.php');
 ?>
   <body>
     <!--------- Admin-Edit Product-Page ------------>
@@ -31,7 +31,7 @@ include('adminserver/getadmineditproductsellersproduct.php');
         <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
           <p class="text-center" style="color: green"><?php if(isset($_GET['editmessage'])){ echo $_GET['editmessage']; }?></p>
           <p class="text-center" style="color: red"><?php if(isset($_GET['errormessage'])){ echo $_GET['errormessage']; }?></p>
-          <h3>Edit Product Seller Products</h3>
+          <h3>Edit Product Sellers Products</h3>
           <hr class="mx-auto">
           <div class="dashboardadmininfo">
             <p>Name: <span><?php if(isset($_SESSION['fldadminname'])){ echo $_SESSION['fldadminname']; }?></span> Position: <span><?php if(isset($_SESSION['fldadminposition'])){ echo $_SESSION['fldadminposition']; }?></span> Department: <span><?php if(isset($_SESSION['fldadmindepartment'])){ echo $_SESSION['fldadmindepartment']; }?></span></p>
@@ -54,7 +54,7 @@ include('adminserver/getadmineditproductsellersproduct.php');
                   <p><?php echo "Discount: ".$productsellers['fldproductdiscount']."%"; ?></p>
                   <p><?php echo "Address: ".$productsellers['fldproductaddressline1'].", ".$productsellers['fldproductpostalcode'].", ".$productsellers['fldproductcity'].", ".$productsellers['fldproductcountry']; ?></p>
                 </div>
-                <form id="admineditproductsform" method="POST" action="admineditproductsellersproduct.php" style="text-align: center;">
+                <form id="admineditproductsform" method="POST" action="admineditsellersproducts.php" style="text-align: center;">
                   <p style="color: red;"><?php if(isset($_GET['error'])){ echo $_GET['error'];} ?></p>
                   <h1 class="admintitle" id="admintitle">Product Details</h1><br>
                   <div class="form-group">

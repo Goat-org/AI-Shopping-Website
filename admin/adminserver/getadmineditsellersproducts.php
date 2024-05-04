@@ -43,12 +43,12 @@ else if($_POST['admineditproductsellersproductbtn']){//Edit Product Sellers Deta
   $stmt->bind_param('sssssssssssssssssssssssssi',$productname,$productdepartment,$productcategory,$producttype,$productcolor,$productgender,$productsize,$productstock,$productdescription,$productprice,$productdiscount,$productdiscountcode,$productlength,$productwidth,$productheight,$productweight,$productfragile,$productspecialhandlingreq,$productinsurancereq,$productaddressline1,$productaddressline2,$productpostalcode,$productcity,$productcountry,$productowner,$productsellersid);
   
   if($stmt->execute()){
-    header('location: ../admin/adminproductsellers.php?editmessage=Product Updated Succesfully!');
+    header('location: ../admin/adminsellers.php?editmessage=Product Updated Succesfully!');
   }
   else{
-    header('location: ../admin/adminproductsellers.php?errormessage=Error Occured, Try Again.');
+    header('location: ../admin/adminsellers.php?errormessage=Error Occured, Try Again.');
   }
 }
 else{//no product sellers id was given
-  header('location: ../admin/adminproductsellers.php?errormessage=Something went wrong!');
+  header('location: ../admin/adminsellers.php?errormessage=Something went wrong!');
 }
