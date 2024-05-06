@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 11:06 AM
+-- Generation Time: May 07, 2024 at 12:08 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,7 +41,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`fldadminid`, `fldadminname`, `fldadminemail`, `fldadminposition`, `fldadmindepartment`, `fldadminpassword`) VALUES
-(2, 'Unknown Guest', 'guest@gmail.com', 'Administrator', 'IT', '12345678');
+(2, 'Batman', 'kkay.mudau008@gmail.com', 'Administrator', 'Boss', '12345678');
 
 -- --------------------------------------------------------
 
@@ -69,8 +69,8 @@ CREATE TABLE `customerbillingaddress` (
 --
 
 INSERT INTO `customerbillingaddress` (`fldbillingid`, `fldorderid`, `fldbillingfirstname`, `fldbillinglastname`, `fldbillingaddressline1`, `fldbillingaddressline2`, `fldbillingpostalcode`, `fldbillingcity`, `fldbillingcountry`, `fldbillingemail`, `fldbillingphonenumber`, `fldbillingidnumber`) VALUES
-(97, 241, 'kay', 'mudau', '676 Delen Road', '', '1804', 'Kimberely', 'South_Africa', 'kkay.mudau007@gmail.com', '0875535478', '0003186643877'),
-(98, 240, 'njabulo', 'moditambi', '56 Fallo Street', '', '1776', 'Durban', 'South_Africa', 'njabulo@gmail.com', '0780034567', '0005354467866');
+(103, 264, 'Freddy', 'Maguwani', '12 Mokapi Street, Gabora', '', '5568', 'Nelspruit', 'South_Africa', 'freddy@gmail.com', '0765585348', '0005443267789'),
+(104, 263, 'drake', 'ovo', '566 Park Lane, Crisona', '', '2332', 'California', 'USA', 'drake@gmail.com', '554327634256', '8534864478587');
 
 -- --------------------------------------------------------
 
@@ -98,9 +98,9 @@ CREATE TABLE `customershippingaddress` (
 --
 
 INSERT INTO `customershippingaddress` (`fldshippingid`, `fldorderid`, `fldshippingfirstname`, `fldshippinglastname`, `fldshippingaddressline1`, `fldshippingaddressline2`, `fldshippingpostalcode`, `fldshippingcity`, `fldshippingcountry`, `fldshippingemail`, `fldshippingphonenumber`, `fldshippingdeliverycomment`) VALUES
-(244, 239, 'njabulo', 'moditambi', '56 Fallo Street', '', '1776', 'Durban', 'South_Africa', 'njabulo@gmail.com', '0780034567', ''),
-(245, 240, 'njabulo', 'moditambi', '56 Fallo Street', '', '1776', 'Durban', 'South_Africa', 'njabulo@gmail.com', '0780034567', ''),
-(246, 241, 'kay', 'mudau', '676 Delen Road', '', '1804', 'Kimberely', 'South_Africa', 'kkay.mudau007@gmail.com', '0875535478', '');
+(270, 262, 'drake', 'ovo', '566 Park Lane, Crisona', '', '2332', 'California', 'USA', 'drake@gmail.com', '554327634256', ''),
+(271, 263, 'drake', 'ovo', '566 Park Lane, Crisona', '', '2332', 'California', 'USA', 'drake@gmail.com', '554327634256', ''),
+(272, 264, 'Freddy', 'Maguwani', '12 Mokapi Street, Gabora', '', '5568', 'Nelspruit', 'South_Africa', 'freddy@gmail.com', '0765585348', '');
 
 -- --------------------------------------------------------
 
@@ -112,6 +112,7 @@ CREATE TABLE `orderitems` (
   `fldorderitemid` int(11) NOT NULL,
   `fldorderid` int(11) NOT NULL,
   `fldproductid` int(11) NOT NULL,
+  `fldproductsellersid` int(11) NOT NULL,
   `fldproductname` varchar(255) NOT NULL,
   `fldproductimage` varchar(255) NOT NULL,
   `fldproductdiscount` int(2) NOT NULL,
@@ -126,10 +127,17 @@ CREATE TABLE `orderitems` (
 -- Dumping data for table `orderitems`
 --
 
-INSERT INTO `orderitems` (`fldorderitemid`, `fldorderid`, `fldproductid`, `fldproductname`, `fldproductimage`, `fldproductdiscount`, `fldproductprice`, `fldproductquantity`, `fldshippingid`, `fldbillingidnumber`, `fldorderdate`) VALUES
-(332, 239, 156, 'FURNITURE Parker Mid Back Chair Black', 'FURNITURE Parker Mid Back Chair Black.png', 0, 1999.00, 1, 244, '0005354467866', '2024-03-24 12:16:10'),
-(333, 240, 156, 'FURNITURE Parker Mid Back Chair Black', 'FURNITURE Parker Mid Back Chair Black.png', 0, 1999.00, 1, 245, '0005354467866', '2024-03-24 12:16:11'),
-(334, 241, 156, 'FURNITURE Parker Mid Back Chair Black', 'FURNITURE Parker Mid Back Chair Black.png', 0, 1999.00, 1, 246, '0003186643877', '2024-03-28 15:48:04');
+INSERT INTO `orderitems` (`fldorderitemid`, `fldorderid`, `fldproductid`, `fldproductsellersid`, `fldproductname`, `fldproductimage`, `fldproductdiscount`, `fldproductprice`, `fldproductquantity`, `fldshippingid`, `fldbillingidnumber`, `fldorderdate`) VALUES
+(366, 262, 159, 4, 'Absolute Vodka', 'Absolute Vodka.jpeg', 0, 399.00, 1, 270, '8534864478587', '2024-05-06 22:13:16'),
+(367, 262, 164, 2, 'Air Jordans', 'Air Jordans.png', 0, 2199.00, 1, 270, '8534864478587', '2024-05-06 22:13:16'),
+(368, 262, 157, 3, 'Nike Shirt', 'Nike Shirt.png', 0, 516.00, 1, 270, '8534864478587', '2024-05-06 22:13:16'),
+(369, 262, 156, 3, 'FURNITURE Parker Mid Back Chair Black', 'FURNITURE Parker Mid Back Chair Black.png', 0, 1999.00, 1, 270, '8534864478587', '2024-05-06 22:13:16'),
+(370, 263, 159, 4, 'Absolute Vodka', 'Absolute Vodka.jpeg', 0, 399.00, 1, 271, '8534864478587', '2024-05-06 22:16:30'),
+(371, 263, 164, 2, 'Air Jordans', 'Air Jordans.png', 0, 2199.00, 1, 271, '8534864478587', '2024-05-06 22:16:30'),
+(372, 263, 157, 3, 'Nike Shirt', 'Nike Shirt.png', 0, 516.00, 1, 271, '8534864478587', '2024-05-06 22:16:30'),
+(373, 263, 156, 3, 'FURNITURE Parker Mid Back Chair Black', 'FURNITURE Parker Mid Back Chair Black.png', 0, 1999.00, 1, 271, '8534864478587', '2024-05-06 22:16:30'),
+(374, 263, 145, 1, 'Apple iPhone 15 Pro Max 1TB Black Titanium', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0db7.png', 0, 38000.00, 1, 271, '8534864478587', '2024-05-06 22:16:30'),
+(375, 264, 157, 3, 'Nike Shirt', 'Nike Shirt.png', 0, 516.00, 1, 272, '0005443267789', '2024-05-06 23:57:55');
 
 -- --------------------------------------------------------
 
@@ -139,9 +147,10 @@ INSERT INTO `orderitems` (`fldorderitemid`, `fldorderid`, `fldproductid`, `fldpr
 
 CREATE TABLE `orders` (
   `fldorderid` int(11) NOT NULL,
+  `fldproductsellersid` varchar(2000) NOT NULL,
   `fldordercost` decimal(11,2) NOT NULL,
   `fldcouriercost` decimal(11,2) NOT NULL,
-  `fldproductdiscount` int(2) NOT NULL,
+  `fldproductdiscountcode` varchar(50) NOT NULL,
   `fldorderstatus` varchar(100) NOT NULL,
   `flduserid` int(11) NOT NULL,
   `fldshippingid` int(11) NOT NULL,
@@ -160,10 +169,10 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`fldorderid`, `fldordercost`, `fldcouriercost`, `fldproductdiscount`, `fldorderstatus`, `flduserid`, `fldshippingid`, `fldbillingidnumber`, `fldbillingphonenumber`, `fldshippingphonenumber`, `fldshippingcity`, `fldshippingcountry`, `fldshippingaddressline1`, `fldshippingaddressline2`, `fldorderdate`, `fldshippingdeliverycomment`) VALUES
-(239, 2179.00, 180.00, 0, 'Not Paid', 98, 244, '0005354467866', '0780034567', '0780034567', 'Durban', 'South_Africa', '56 Fallo Street', '', '2024-03-24 12:16:10', ''),
-(240, 2179.00, 180.00, 0, 'Shipped', 98, 245, '0005354467866', '', '', 'Durban', 'South_Africa', '56 Fallo Street', '', '2024-03-24 12:16:11', ''),
-(241, 2099.00, 100.00, 0, 'Not Paid', 97, 246, '0003186643877', '0875535478', '0875535478', 'Kimberely', 'South_Africa', '676 Delen Road', '', '2024-03-28 15:48:04', '');
+INSERT INTO `orders` (`fldorderid`, `fldproductsellersid`, `fldordercost`, `fldcouriercost`, `fldproductdiscountcode`, `fldorderstatus`, `flduserid`, `fldshippingid`, `fldbillingidnumber`, `fldbillingphonenumber`, `fldshippingphonenumber`, `fldshippingcity`, `fldshippingcountry`, `fldshippingaddressline1`, `fldshippingaddressline2`, `fldorderdate`, `fldshippingdeliverycomment`) VALUES
+(262, '0,4,2,3,3', 5293.00, 180.00, '', 'Not Paid', 104, 270, '8534864478587', '554327634256', '5543276342', 'California', 'USA', '566 Park Lane, Crisona', '', '2024-05-06 22:13:16', ''),
+(263, '0,1,2,3,3,4', 43213.00, 100.00, '', 'Delivered', 104, 271, '8534864478587', '554327634256', '', 'California', 'USA', '566 Park Lane, Crisona', '', '2024-05-06 22:16:30', ''),
+(264, '0,3', 616.00, 100.00, '', 'Paid', 103, 272, '0005443267789', '0765585348', '0765585348', 'Nelspruit', 'South_Africa', '12 Mokapi Street, Gabora', '', '2024-05-06 23:57:55', '');
 
 -- --------------------------------------------------------
 
@@ -184,7 +193,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`fldpaymentid`, `fldorderid`, `flduserid`, `fldtransactionid`, `fldpaymentdate`) VALUES
-(122, 240, 98, '0', '2024-03-24 12:17:03');
+(126, 264, 103, '1', '2024-05-06 23:58:29');
 
 -- --------------------------------------------------------
 
@@ -213,6 +222,7 @@ CREATE TABLE `productreviews` (
 
 CREATE TABLE `products` (
   `fldproductid` int(11) NOT NULL,
+  `fldproductsellersid` int(11) NOT NULL,
   `fldproductname` varchar(100) NOT NULL,
   `fldproductdepartment` varchar(100) NOT NULL,
   `fldproductcategory` varchar(100) NOT NULL,
@@ -231,18 +241,67 @@ CREATE TABLE `products` (
   `fldproductimage6` varchar(255) NOT NULL,
   `fldproductprice` decimal(11,2) NOT NULL,
   `fldproductdiscount` int(2) NOT NULL,
-  `fldproductdiscountcode` varchar(100) NOT NULL
+  `fldproductdiscountcode` varchar(50) NOT NULL,
+  `fldproductlength` varchar(10) NOT NULL,
+  `fldproductwidth` varchar(10) NOT NULL,
+  `fldproductheight` varchar(10) NOT NULL,
+  `fldproductweight` varchar(10) NOT NULL,
+  `fldproductfragile` varchar(10) NOT NULL,
+  `fldproductspecialhandlingreq` varchar(1000) NOT NULL,
+  `fldproductinsurancereq` varchar(2000) NOT NULL,
+  `fldproductaddressline1` varchar(150) NOT NULL,
+  `fldproductaddressline2` varchar(150) NOT NULL,
+  `fldproductpostalcode` varchar(10) NOT NULL,
+  `fldproductcity` varchar(150) NOT NULL,
+  `fldproductcountry` varchar(150) NOT NULL,
+  `fldproductowner` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`fldproductid`, `fldproductname`, `fldproductdepartment`, `fldproductcategory`, `fldproducttype`, `fldproductcolor`, `fldproductgender`, `fldproductsize`, `fldproductstock`, `fldproductdescription`, `fldproductimage`, `fldproductimage1`, `fldproductimage2`, `fldproductimage3`, `fldproductimage4`, `fldproductimage5`, `fldproductimage6`, `fldproductprice`, `fldproductdiscount`, `fldproductdiscountcode`) VALUES
-(145, 'Apple iPhone 15 Pro Max 1TB Black Titanium', 'Electronics & Devices', 'Mobile', 'IPhone', 'Black', 'none', 'none', '5', 'Smartphone · Dual SIM · 5G · Wireless Charging · With Fast Charging · iOS · Facial Recognition · With OLED Display · Black Titanium · Water Resistan', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0db7.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbc 1.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbd 2.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbe 3.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbf 4.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dc0 5.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dc1 6.png', 42000.00, 5, ''),
-(154, 'MacBook Air 13-inch', 'Electronics', '', 'Electronics', '', '', '', '4', 'Very Fast', 'MacBook Air 13-inch.png', 'MacBook Air 13-inch top.png', 'MacBook Air 13-inch right.png', 'MacBook Air 13-inch left.png', 'MacBook Air 13-inch bottom.png', 'MacBook Air 13-inch back.png', 'MacBook Air 13-inch side.png', 9999.99, 5, ''),
-(156, 'FURNITURE Parker Mid Back Chair Black', 'Home & Appliances', '', 'Home', '', '', '', '5', 'PU/PVC combination Gas lift height adjustable Swivel and tilt mechanism Nylon base Maximum weight 120kg Assembly required Black 12 month guarantee', 'FURNITURE Parker Mid Back Chair Black.png', 'FURNITURE Parker Mid Back Chair Black 1.png', 'FURNITURE Parker Mid Back Chair Black 2.png', 'FURNITURE Parker Mid Back Chair Black 3.png', 'FURNITURE Parker Mid Back Chair Black 4.png', 'FURNITURE Parker Mid Back Chair Black 5.png', 'FURNITURE Parker Mid Back Chair Black 6.png', 1999.00, 2, ''),
-(157, 'Nike Shirt', 'Clothing, Shoes & Accessories', 'Clothing', 'T-Shirt', 'Black', 'Male', 'Male', '6', 'Original Shirt', 'Nike Shirt.png', 'Nike Shirt 1.png', 'Nike Shirt 2.png', 'Nike Shirt 3.png', 'Nike Shirt 4.png', 'Nike Shirt 5.png', 'Nike Shirt 6.png', 516.00, 20, '');
+INSERT INTO `products` (`fldproductid`, `fldproductsellersid`, `fldproductname`, `fldproductdepartment`, `fldproductcategory`, `fldproducttype`, `fldproductcolor`, `fldproductgender`, `fldproductsize`, `fldproductstock`, `fldproductdescription`, `fldproductimage`, `fldproductimage1`, `fldproductimage2`, `fldproductimage3`, `fldproductimage4`, `fldproductimage5`, `fldproductimage6`, `fldproductprice`, `fldproductdiscount`, `fldproductdiscountcode`, `fldproductlength`, `fldproductwidth`, `fldproductheight`, `fldproductweight`, `fldproductfragile`, `fldproductspecialhandlingreq`, `fldproductinsurancereq`, `fldproductaddressline1`, `fldproductaddressline2`, `fldproductpostalcode`, `fldproductcity`, `fldproductcountry`, `fldproductowner`) VALUES
+(145, 1, 'Apple iPhone 15 Pro Max 1TB Black Titanium', 'Electronics & Devices', 'Mobile', 'IPhone', 'Black', '', '', '12', 'Smartphone · Dual SIM · 5G · Wireless Charging · With Fast Charging · iOS · Facial Recognition · With OLED Display · Black Titanium · Water Resistan', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0db7.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbc 1.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbd 2.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbe 3.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dbf 4.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dc0 5.png', 'Apple iPhone 15 Pro Max 1TB Black Titanium66169da6f0dc1 6.png', 38000.00, 5, '', '0', '4', '11', '0.25', 'Yes', '', '', '65 Wisani Street, Shoshanguve', '', '1645', 'Pretoria', 'South_Africa', 'Kay Mudau'),
+(154, 2, 'Mac Book Pro II', 'Electronics & Devices', 'Laptop', 'Mac', 'Silver', '', '', '5', 'Very Good', 'MacBook Air 13-inch.png', 'MacBook Air 13-inch top.png', 'MacBook Air 13-inch right.png', 'MacBook Air 13-inch left.png', 'MacBook Air 13-inch bottom.png', 'MacBook Air 13-inch back.png', 'MacBook Air 13-inch side.png', 51000.00, 13, 'Awesome33', '50', '30', '19', '1.25', 'Yes', '', '', '65 Wisani Street, Shoshanguve', '', '1645', 'Pretoria', 'South_Africa', 'Kay Mudau'),
+(156, 3, 'FURNITURE Parker Mid Back Chair Black', 'Home & Furniture', 'Office Chair', 'Chair', '', '', '', '7', 'PU/PVC combination Gas lift height adjustable Swivel and tilt mechanism Nylon base Maximum weight 120kg Assembly required Black 12 month guarantee', 'FURNITURE Parker Mid Back Chair Black.png', 'FURNITURE Parker Mid Back Chair Black 1.png', 'FURNITURE Parker Mid Back Chair Black 2.png', 'FURNITURE Parker Mid Back Chair Black 3.png', 'FURNITURE Parker Mid Back Chair Black 4.png', 'FURNITURE Parker Mid Back Chair Black 5.png', 'FURNITURE Parker Mid Back Chair Black 6.png', 1999.00, 0, '', '0', '0', '0', '0', 'No', '', '', '65 Wisani Street, Shoshanguve', '', '1645', 'Pretoria', 'South_Africa', 'Kay Mudau'),
+(157, 3, 'Nike Shirt', 'Clothing, Shoes & Accessories', 'Shirts', 'T-Shirt', 'Black', 'Male', '', '12', 'Original Shirt', 'Nike Shirt.png', 'Nike Shirt 1.png', 'Nike Shirt 2.png', 'Nike Shirt 3.png', 'Nike Shirt 4.png', 'Nike Shirt 5.png', 'Nike Shirt 6.png', 516.00, 2, '', '0', '0', '0', '0', 'No', '', '', '65 Wisani Street, Shoshanguve', '', '1645', 'Pretoria', 'South_Africa', 'Kay Mudau'),
+(159, 4, 'Absolute Vodka', 'Liquor', 'Vodka', '', '', '', '', '18', '43% Alcohol. Not for sale to persons under the age of 18.', 'Absolute Vodka.jpeg', 'Absolute Vodka 1.jpeg', 'Absolute Vodka 2.jpeg', 'Absolute Vodka 3.jpeg', 'Absolute Vodka 4.jpeg', 'Absolute Vodka 5.jpeg', 'Absolute Vodka 6.jpeg', 399.00, 6, 'Friday66', '18', '5', '18', '1.1', 'Yes', '', '', '56 Wisani Street, Soshanguve', '', '1756', 'Pretoria', 'South_Africa', 'Kay Mudau'),
+(164, 2, 'Air Jordans', 'Clothing, Shoes & Accessories', 'Shoes', 'High Top Sneakers', 'Red & Black', 'Unisex', 'Medium', '8', 'Very Comfortable', 'Air Jordans.png', 'Air Jordans 1.png', 'Air Jordans 2.png', 'Air Jordans 3.png', 'Air Jordans 4.png', 'Air Jordans 5.png', 'Air Jordans 6.png', 2199.00, 5, 'nuuuTT78', '0', '0', '0', '0', 'No', '', '', '45 Birbeck Street, New Park', '', '8301', 'Kimberley', 'South_Africa', 'Amanda Sandla');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productsellers`
+--
+
+CREATE TABLE `productsellers` (
+  `fldproductsellersid` int(11) NOT NULL,
+  `fldproductsellersimage` varchar(150) NOT NULL,
+  `fldproductsellersfirstname` varchar(100) NOT NULL,
+  `fldproductsellerslastname` varchar(100) NOT NULL,
+  `fldproductsellersaddressline1` varchar(150) NOT NULL,
+  `fldproductsellersaddressline2` varchar(150) NOT NULL,
+  `fldproductsellerspostalcode` varchar(4) NOT NULL,
+  `fldproductsellerscity` varchar(150) NOT NULL,
+  `fldproductsellerscountry` varchar(150) NOT NULL,
+  `fldproductsellersemail` varchar(150) NOT NULL,
+  `fldproductsellersphonenumber` varchar(11) NOT NULL,
+  `fldproductsellersidnumber` varchar(13) NOT NULL,
+  `fldproductsellerspassword` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `productsellers`
+--
+
+INSERT INTO `productsellers` (`fldproductsellersid`, `fldproductsellersimage`, `fldproductsellersfirstname`, `fldproductsellerslastname`, `fldproductsellersaddressline1`, `fldproductsellersaddressline2`, `fldproductsellerspostalcode`, `fldproductsellerscity`, `fldproductsellerscountry`, `fldproductsellersemail`, `fldproductsellersphonenumber`, `fldproductsellersidnumber`, `fldproductsellerspassword`) VALUES
+(1, 'unknownimage.png', 'Kay', 'Mudau', '4708 Mhunti Street, Tshiawelo', '', '1818', 'Johannesburg', 'South_Africa', 'kkay.mudau008@gmail.com', '0780051495', '01182512800', '25d55ad283aa400af464c76d713c07ad'),
+(2, 'unknownimage.png', 'Amanda', 'Sandla', '78 Willow Street, New Park', '', '8301', 'Kimberley', 'South_Africa', 'amanda@gmail.com', '0812987736', '0003182367899', '25d55ad283aa400af464c76d713c07ad'),
+(3, 'unknownimage.png', 'Njabulo', 'Moditambi', '67 Wisani Street, Tshiawelo', '', '1892', 'Johannesburg', 'South_Africa', 'njabulo@gmail.com', '0756695434', '0006436514688', '25d55ad283aa400af464c76d713c07ad'),
+(4, 'unknownimage.png', 'Awanda', 'Gumbi', '45 Birbeck Street, New Park', '', '6589', 'Kimberley', 'South_Africa', 'awanda@gmail.com', '0785549870', '0006537769877', '25d55ad283aa400af464c76d713c07ad'),
+(5, 'unknownimage.png', 'Mazuwo', 'Mudau', '21 Truter Street, Luis Trichardt', '', '3301', 'Thohoyandou', 'South_Africa', 'mazuwo@gmail.com', '0853452278', '0807186612966', '25f9e794323b453885f5181f1b624d0b'),
+(6, 'unknownimage.png', 'Londo Junior', 'Mudau', '32 Long Street, Pinetown', '', '4436', 'Durban', 'South_Africa', 'junior@gmail.com', '0764453899', '1011173345977', '25d55ad283aa400af464c76d713c07ad');
 
 -- --------------------------------------------------------
 
@@ -260,6 +319,14 @@ CREATE TABLE `testimonials` (
   `fldtestimonialsimage` varchar(255) NOT NULL,
   `fldtestimonialsdate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+INSERT INTO `testimonials` (`fldtestimonialsid`, `fldtestimonialsfirstname`, `fldtestimonialslastname`, `fldtestimonialsemail`, `fldtestimonialspassword`, `fldtestimonialscomment`, `fldtestimonialsimage`, `fldtestimonialsdate`) VALUES
+(45, 'Freddy', 'Maguwani', 'freddy@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '', 'unknownimage.png', '2024-05-06 13:04:53'),
+(46, 'drake', 'ovo', 'drake@gmail.com', '', '', 'unknownimage.png', '2024-05-06 21:19:17');
 
 -- --------------------------------------------------------
 
@@ -288,8 +355,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`flduserid`, `flduserimage`, `flduserfirstname`, `flduserlastname`, `flduseraddressline1`, `flduseraddressline2`, `flduserpostalcode`, `fldusercity`, `fldusercountry`, `flduseremail`, `flduserphonenumber`, `flduseridnumber`, `flduserpassword`) VALUES
-(97, 'unknownimage.png', 'kay', 'mudau', '676 Delen Road', '', '1804', 'Kimberely', 'South_Africa', 'kkay.mudau007@gmail.com', '0875535478', '0003186643877', '550e1bafe077ff0b0b67f4e32f29d751'),
-(98, 'unknownimage.png', 'njabulo', 'moditambi', '56 Fallo Street', '', '1776', 'Durban', 'South_Africa', 'njabulo@gmail.com', '0780034567', '0005354467866', '550e1bafe077ff0b0b67f4e32f29d751');
+(103, 'unknownimage.png', 'Freddy', 'Maguwani', '12 Mokapi Street, Gabora', '', '5568', 'Nelspruit', 'South_Africa', 'freddy@gmail.com', '0765585348', '0005443267789', '550e1bafe077ff0b0b67f4e32f29d751'),
+(104, 'unknownimage.png', 'drake', 'ovo', '566 Park Lane, Crisona', '', '2332', 'California', 'USA', 'drake@gmail.com', '554327634256', '8534864478587', '550e1bafe077ff0b0b67f4e32f29d751');
 
 --
 -- Indexes for dumped tables
@@ -305,7 +372,10 @@ ALTER TABLE `admins`
 -- Indexes for table `customerbillingaddress`
 --
 ALTER TABLE `customerbillingaddress`
-  ADD PRIMARY KEY (`fldbillingid`,`fldbillingidnumber`);
+  ADD PRIMARY KEY (`fldbillingid`,`fldbillingidnumber`),
+  ADD UNIQUE KEY `fldorderid` (`fldorderid`),
+  ADD UNIQUE KEY `fldbillingidnumber` (`fldbillingidnumber`),
+  ADD UNIQUE KEY `fldbillingidnumber_2` (`fldbillingidnumber`);
 
 --
 -- Indexes for table `customershippingaddress`
@@ -344,6 +414,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`fldproductid`);
 
 --
+-- Indexes for table `productsellers`
+--
+ALTER TABLE `productsellers`
+  ADD PRIMARY KEY (`fldproductsellersid`);
+
+--
 -- Indexes for table `testimonials`
 --
 ALTER TABLE `testimonials`
@@ -369,55 +445,71 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `customerbillingaddress`
 --
 ALTER TABLE `customerbillingaddress`
-  MODIFY `fldbillingid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `fldbillingid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `customershippingaddress`
 --
 ALTER TABLE `customershippingaddress`
-  MODIFY `fldshippingid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+  MODIFY `fldshippingid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=273;
 
 --
 -- AUTO_INCREMENT for table `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `fldorderitemid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
+  MODIFY `fldorderitemid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `fldorderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+  MODIFY `fldorderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `fldpaymentid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `fldpaymentid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
 --
 ALTER TABLE `productreviews`
-  MODIFY `fldproductreviewid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `fldproductreviewid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `fldproductid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `fldproductid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+
+--
+-- AUTO_INCREMENT for table `productsellers`
+--
+ALTER TABLE `productsellers`
+  MODIFY `fldproductsellersid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `fldtestimonialsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `fldtestimonialsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `flduserid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `flduserid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `customerbillingaddress`
+--
+ALTER TABLE `customerbillingaddress`
+  ADD CONSTRAINT `customerbillingaddress_ibfk_1` FOREIGN KEY (`fldbillingid`) REFERENCES `users` (`flduserid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

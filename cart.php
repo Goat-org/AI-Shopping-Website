@@ -38,7 +38,7 @@ if(empty($_SESSION['cart'])){
 							<li class="active"><a href="about.php"><img id="navbaricons" src="assets/images/abouticon_pic.png" alt="Snow">About</a></li>
 							<li class="active" id="departmentitems" onclick="departmentsmenutoggle()"><a href="#"><img id="navbaricons" src="assets/images/productsicon_pic.png" alt="Snow">Shop Departments</a></li>
 							<li class="active"><a href="contact.php"><img id="navbaricons" src="assets/images/contacticon_pic.png" alt="Snow">Contact</a></li>
-							<li class="active"><a href="#"><img id="navbaricons" src="assets/images/resellericon_pic.png" alt="Snow">Sell on NSSA</a></li>
+							<li class="active"><a href="sellers/adminlogin.php" target="_blank" rel="noopener noreferrer"><img id="navbaricons" src="assets/images/resellericon_pic.png" alt="Snow">Sell on NSSA</a></li>
 							<li class="active"><a href="#"><img id="navbaricons" src="assets/images/careersicon_pic.png" alt="Snow">Careers</a></li>
 				    </ul>
 					</nav>
@@ -207,7 +207,7 @@ if(empty($_SESSION['cart'])){
 				<div class="form-group">
 					<label>Country
 						<select class="form-control" id="billingcountry" name="fldbillingcountry" size="1" value="" required>
-							<option value="">Select Country..</option>
+							<option value="<?php if(isset($_SESSION['fldusercountry'])){ echo $_SESSION['fldusercountry']; }else{ echo "Select Country..."; } ?>"><?php if(isset($_SESSION['fldusercountry'])){ echo $_SESSION['fldusercountry']; }else{ echo "Select Country..."; } ?></option>
 							<option value="Australia">Australia</option>
 							<option value="Britain">Britain</option>
 							<option value="China">China</option>

@@ -27,7 +27,7 @@ $adjacents = "2";
 $totalnumberofpages = ceil($totalrecords / $totalrecordsperpage);
 
 //4. get all orders
-$stmt1 = $conn->prepare("SELECT * FROM orders WHERE fldproductsellersid=? LIMIT $offset,$totalrecordsperpage");
-$stmt1->bind_param("i",$productsellersid);
+$stmt1 = $conn->prepare("SELECT * FROM orders WHERE fldproductsellersid LIKE '%$productsellersid%' LIMIT $offset,$totalrecordsperpage");
+//$stmt1->bind_param("i",$productsellersid);
 $stmt1->execute();
 $orders = $stmt1->get_result();// This is an array

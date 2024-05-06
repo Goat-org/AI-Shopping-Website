@@ -100,36 +100,34 @@ if(isset($_POST['checkoutbtn'])){
 			$stmt3->bind_param('issssssssss',$orderid,$shippingfirstname,$shippinglastname,$shippingaddressline1,$shippingaddressline2,$shippingpostalcode,$shippingcity,$shippingcountry,$shippingemail,$shippingphonenumber,$shippingdeliverycomment); 
 
 			// Get Product Sellers Id in Session Cart Array
+			$productsellersid = 0;
 			foreach($_SESSION['cart'] as $key => $value){
 				$product = $_SESSION['cart'][$key];
-				$productsellersid = $product['fldproductsellersid'];
-				//1.4.1 Insert in Orders Table
-				$stmt4 = $conn->prepare("INSERT INTO orders (fldproductsellersid,fldordercost,fldcouriercost,fldproductdiscountcode,fldorderstatus,flduserid,fldshippingid,fldbillingidnumber,fldbillingphonenumber,fldshippingphonenumber,fldshippingcity,fldshippingcountry,fldshippingaddressline1,fldshippingaddressline2,fldorderdate,fldshippingdeliverycomment)
-				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-				$stmt4->bind_param('siissiisssssssss',$productsellersid,$ordercost,$couriercost,$discountcode,$orderstatus,$userid,$shippingid,$billingidnumber,$billingphonenumber,$shippingphonenumber,$shippingcity,$shippingcountry,$shippingaddressline1,$shippingaddressline2,$orderdate,$shippingdeliverycomment);
+				$productsellersid = $productsellersid.",".$product['fldproductsellersid'];
+			}
+			//1.4.1 Insert in Orders Table
+			$stmt4 = $conn->prepare("INSERT INTO orders (fldproductsellersid,fldordercost,fldcouriercost,fldproductdiscountcode,fldorderstatus,flduserid,fldshippingid,fldbillingidnumber,fldbillingphonenumber,fldshippingphonenumber,fldshippingcity,fldshippingcountry,fldshippingaddressline1,fldshippingaddressline2,fldorderdate,fldshippingdeliverycomment)
+			VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$stmt4->bind_param('siissiisssssssss',$productsellersid,$ordercost,$couriercost,$discountcode,$orderstatus,$userid,$shippingid,$billingidnumber,$billingphonenumber,$shippingphonenumber,$shippingcity,$shippingcountry,$shippingaddressline1,$shippingaddressline2,$orderdate,$shippingdeliverycomment);
 
-				//1.8 Update Billing & Shipping Address Table With Order Id Syncronization
-				$stmt5 = $conn->prepare("UPDATE customerbillingaddress SET fldorderid = ? WHERE fldorderid = -1 AND fldbillingemail = ?");
-				$stmt5->bind_param('is',$orderid,$billingemail);
+			//1.8 Update Billing & Shipping Address Table With Order Id Syncronization
+			$stmt5 = $conn->prepare("UPDATE customerbillingaddress SET fldorderid = ? WHERE fldorderid = -1 AND fldbillingemail = ?");
+			$stmt5->bind_param('is',$orderid,$billingemail);
 
-				$stmt6 = $conn->prepare("UPDATE customershippingaddress SET fldorderid = ? WHERE fldorderid = -1 AND fldshippingemail = ?");
-				$stmt6->bind_param('is',$orderid,$shippingemail);
+			$stmt6 = $conn->prepare("UPDATE customershippingaddress SET fldorderid = ? WHERE fldorderid = -1 AND fldshippingemail = ?");
+			$stmt6->bind_param('is',$orderid,$shippingemail);
 
-				if($stmt1->execute()){
-					if($stmt2->execute()){
-						if($stmt3->execute()){
-							//1.3.2Issue New Shipping and store Shipping info in database
-							$_SESSION['fldshippingid'] = $shippingid = $stmt3->insert_id;
-							if($stmt4->execute()){
-								//1.4.2 Issue New Order and store Order info in database
-								$_SESSION['fldorderid'] = $orderid = $stmt4->insert_id;
-								if($stmt5->execute()){
-									if($stmt6->execute()){
+			if($stmt1->execute()){
+				if($stmt2->execute()){
+					if($stmt3->execute()){
+						//1.3.2Issue New Shipping and store Shipping info in database
+						$_SESSION['fldshippingid'] = $shippingid = $stmt3->insert_id;
+						if($stmt4->execute()){
+							//1.4.2 Issue New Order and store Order info in database
+							$_SESSION['fldorderid'] = $orderid = $stmt4->insert_id;
+							if($stmt5->execute()){
+								if($stmt6->execute()){
 
-									}
-									else{
-										header('location: ../cart.php?error=Something Went Wrong, Try Again.');
-									}
 								}
 								else{
 									header('location: ../cart.php?error=Something Went Wrong, Try Again.');
@@ -150,6 +148,9 @@ if(isset($_POST['checkoutbtn'])){
 				else{
 					header('location: ../cart.php?error=Something Went Wrong, Try Again.');
 				}
+			}
+			else{
+				header('location: ../cart.php?error=Something Went Wrong, Try Again.');
 			}
 
 			//1.9 Get products from cart (from session)
