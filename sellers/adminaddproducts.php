@@ -1,7 +1,7 @@
 <?php
 include('adminlayouts/adminheader.php');
 //if user is not logged in then take user to login page
-if(!isset($_SESSION['adminlogged_in'])){
+if(!isset($_SESSION['productsellerslogged_in'])){
   header('location: adminlogin.php');
   exit;
 }
@@ -16,8 +16,8 @@ include('adminserver/getadminaddproducts.php');
           <p class="text-center" style="color: red"><?php if(isset($_GET['errormessage'])){ echo $_GET['errormessage']; }?></p>
           <h3>Add Products</h3>
           <hr class="mx-auto">
-          <div class="dashboardadmininfo">
-            <p>Name: <span><?php if(isset($_SESSION['fldadminname'])){ echo $_SESSION['fldadminname']; }?></span> Position: <span><?php if(isset($_SESSION['fldadminposition'])){ echo $_SESSION['fldadminposition']; }?></span> Department: <span><?php if(isset($_SESSION['fldadmindepartment'])){ echo $_SESSION['fldadmindepartment']; }?></span></p>
+          <div class="dashboardadmininfo" id="dashboardadmininfo">
+            <p>Product Owner: <span><?php if(isset($_SESSION['fldproductsellersfirstname']) && isset($_SESSION['fldproductsellerslastname'])){ echo $_SESSION['fldproductsellersfirstname']." ".$_SESSION['fldproductsellerslastname']; }?></span> Collection Address Line 1: <span><?php if(isset($_SESSION['fldproductsellersaddressline1'])){ echo $_SESSION['fldproductsellersaddressline1']; }?></span> Collection Address Line 2: <span><?php if(isset($_SESSION['fldproductsellersaddressline2'])){ echo $_SESSION['fldproductsellersaddressline2']; }?></span></p>
           </div>
           <div class="dashboardinfo">
             <div class="adminaddproductstablecontainer">
@@ -95,6 +95,7 @@ include('adminserver/getadminaddproducts.php');
                     <p id="form-optional">[optional]</p>
                     <label>Product Size
                       <select class="form-select" name="fldproductsize">
+                        <option value="">no selection...</option>
                         <option value="X-Small">X-Small</option>
                         <option value="Small">Small</option>
                         <option value="Medium">Medium</option>
@@ -285,7 +286,7 @@ include('adminserver/getadminaddproducts.php');
                     </label>
                   </div>
                   <div class="form-group">
-                    <input class="btn" id="admineditbtn" name="adminaddproductsbtn" type="submit" value="Add" style="width: 270px;" required/>
+                    <input class="btn" id="admineditbtn" name="productsellersaddproductsbtn" type="submit" value="Add" style="width: 270px;" required/>
                     <a id="helpurl" href="Help.php"><br>Need Help?</a>
                   </div>
                 </form>

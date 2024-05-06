@@ -75,8 +75,10 @@ if(isset($_POST['buynowbtn'])){
     //1.1 if product has already been added to cart or not
     if(!in_array($_POST['fldproductid'], $productsarrayids)){
       $productid = $_POST['fldproductid'];
+      $productsellersid = $_POST['fldproductsellersid'];
       $productarray = array(
         'fldproductid' => $_POST['fldproductid'],
+        'fldproductsellersid' => $_POST['fldproductsellersid'],
         'fldproductname' => $_POST['fldproductname'],
         'fldproductprice' => $_POST['fldproductprice'],
         'fldproductimage' => $_POST['fldproductimage'],
@@ -90,12 +92,14 @@ if(isset($_POST['buynowbtn'])){
   }
   else{//2 if this is the first product
     $productid = $_POST['fldproductid'];
+    $productsellersid = $_POST['fldproductsellersid'];
     $productname = $_POST['fldproductname'];
     $productprice = $_POST['fldproductprice'];
     $productimage = $_POST['fldproductimage'];
     $productquantity = $_POST['fldproductquantity'];
     $productarray = array(
       'fldproductid' => $productid,
+      'fldproductsellersid' => $productsellersid,
       'fldproductname' => $productname,
       'fldproductprice' => $productprice,
       'fldproductimage' => $productimage,
@@ -115,8 +119,10 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
     //1.1 if product has already been added to cart or not
     if(!in_array($_POST['fldproductid'], $productsarrayids)){
       $productid = $_POST['fldproductid'];
+      $productsellersid = $_POST['fldproductsellersid'];
       $productarray = array(
         'fldproductid' => $_POST['fldproductid'],
+        'fldproductsellersid' => $_POST['fldproductsellersid'],
         'fldproductname' => $_POST['fldproductname'],
         'fldproductprice' => $_POST['fldproductprice'],
         'fldproductimage' => $_POST['fldproductimage'],
@@ -130,6 +136,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
   }
   else{//2 if this is the first product
     $productid = $_POST['fldproductid'];
+    $productsellersid = $_POST['fldproductsellersid'];
     $productname = $_POST['fldproductname'];
     $productprice = $_POST['fldproductprice'];
     $productimage = $_POST['fldproductimage'];
@@ -137,6 +144,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
 
     $productarray = array(
       'fldproductid' => $productid,
+      'fldproductsellersid' => $productsellersid,
       'fldproductname' => $productname,
       'fldproductprice' => $productprice,
       'fldproductimage' => $productimage,

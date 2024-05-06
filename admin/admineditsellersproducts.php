@@ -113,7 +113,7 @@ include('adminserver/getadmineditsellersproducts.php');
                         <option value="<?php echo $productsellers['fldproductgender']; ?>"><?php echo $productsellers['fldproductgender']; ?></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Other">Other</option>
+                        <option value="Unisex">Unisex</option>
                       </select>
                     </label>
                   </div>

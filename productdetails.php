@@ -121,6 +121,7 @@ include('server/getproductdetails.php');
 
 				<form name="productdetailsform" method="POST" action="productdetails.php">
 					<input type="hidden" name="fldproductid" value="<?php echo $row['fldproductid']; ?>"/>
+					<input type="hidden" name="fldproductsellersid" value="<?php echo $row['fldproductsellersid']; ?>"/>
 					<input type="hidden" name="fldproductimage" value="<?php echo $row['fldproductimage']; ?>"/>
 					<input type="hidden" name="fldproductname" value="<?php echo $row['fldproductname']; ?>"/>
 					<input type="hidden" name="fldproductprice" value="<?php echo $row['fldproductprice']; ?>"/>
