@@ -83,6 +83,7 @@ if(isset($_POST['buynowbtn'])){
         'fldproductprice' => $_POST['fldproductprice'],
         'fldproductimage' => $_POST['fldproductimage'],
         'fldproductquantity' => $_POST['fldproductquantity'],
+        'fldproductdiscount' => $_POST['fldproductdiscount'],
       );
       $_SESSION['cart'][$productid] = $productarray;
     }
@@ -97,6 +98,7 @@ if(isset($_POST['buynowbtn'])){
     $productprice = $_POST['fldproductprice'];
     $productimage = $_POST['fldproductimage'];
     $productquantity = $_POST['fldproductquantity'];
+    $productdiscount = $_POST['fldproductdiscount'];
     $productarray = array(
       'fldproductid' => $productid,
       'fldproductsellersid' => $productsellersid,
@@ -104,6 +106,7 @@ if(isset($_POST['buynowbtn'])){
       'fldproductprice' => $productprice,
       'fldproductimage' => $productimage,
       'fldproductquantity' => $productquantity,
+      'fldproductdiscount' => $productdiscount,
     );
     $_SESSION['cart'][$productid] = $productarray;
   }
@@ -127,6 +130,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
         'fldproductprice' => $_POST['fldproductprice'],
         'fldproductimage' => $_POST['fldproductimage'],
         'fldproductquantity' => $_POST['fldproductquantity'],
+        'fldproductdiscount' => $_POST['fldproductdiscount'],
       );
       $_SESSION['cart'][$productid] = $productarray;
     }
@@ -141,6 +145,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
     $productprice = $_POST['fldproductprice'];
     $productimage = $_POST['fldproductimage'];
     $productquantity = $_POST['fldproductquantity'];
+    $productdiscount = $_POST['fldproductdiscount'];
 
     $productarray = array(
       'fldproductid' => $productid,
@@ -149,6 +154,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
       'fldproductprice' => $productprice,
       'fldproductimage' => $productimage,
       'fldproductquantity' => $productquantity,
+      'fldproductdiscount' => $productdiscount,
     );
     $_SESSION['cart'][$productid] = $productarray;
   }
@@ -168,8 +174,9 @@ function calculatetotalcart(){
 
     $price = $product['fldproductprice'];
     $quantity = $product['fldproductquantity'];
+    $discount = $product['fldproductdiscount'];
     
-    $totalprice = $totalprice + ($price * $quantity);
+    $totalprice = $totalprice+($price*$quantity)-($price*$quantity*$discount);
     $totalquantity = $totalquantity + $quantity; 
 
   }

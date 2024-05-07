@@ -162,11 +162,12 @@ if(isset($_POST['checkoutbtn'])){
 				$_SESSION['fldproductimage'] = $productimage = $product['fldproductimage'];
 				$_SESSION['fldproductprice'] = $productprice = $product['fldproductprice'];
 				$_SESSION['fldproductquantity'] = $productquantity = $product['fldproductquantity'];
+				$productdiscount = $product['fldproductdiscount'];
 
 				//1.9.1 insert each single item in Orders Items Table
-				$stmt7 = $conn->prepare("INSERT INTO orderitems (fldorderid,fldproductid,fldproductsellersid,fldproductname,fldproductimage,fldproductprice,fldproductquantity,fldshippingid,fldbillingidnumber,fldorderdate)
-				VALUES (?,?,?,?,?,?,?,?,?,?)");
-				$stmt7->bind_param('iiissiiiss',$orderid,$productid,$productsellersid,$productname,$productimage,$productprice,$productquantity,$shippingid,$billingidnumber,$orderdate);
+				$stmt7 = $conn->prepare("INSERT INTO orderitems (fldorderid,fldproductid,fldproductsellersid,fldproductname,fldproductdiscount,fldproductimage,fldproductprice,fldproductquantity,fldshippingid,fldbillingidnumber,fldorderdate)
+				VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+				$stmt7->bind_param('iiisisiiiss',$orderid,$productid,$productsellersid,$productname,$productdiscount,$productimage,$productprice,$productquantity,$shippingid,$billingidnumber,$orderdate);
 				if($stmt7->execute()){
 
 				}
@@ -197,6 +198,13 @@ if(isset($_POST['checkoutbtn'])){
 			VALUES(?,?,?,?)");
 			$stmt3->bind_param('ssss',$testimonialsimage,$testimonialsfirstname,$testimonialslastname,$testimonialsemail);
 
+			// Get Product Sellers Id in Session Cart Array
+			$productsellersid = 0;
+			foreach($_SESSION['cart'] as $key => $value){
+				$product = $_SESSION['cart'][$key];
+				$productsellersid = $productsellersid.",".$product['fldproductsellersid'];
+			}
+			
 			//1.5.1 Insert In Orders Table
 			$stmt4 = $conn->prepare("INSERT INTO orders (fldproductsellersid,fldordercost,fldcouriercost,fldproductdiscountcode,fldorderstatus,flduserid,fldshippingid,fldbillingidnumber,fldbillingphonenumber,fldshippingphonenumber,fldshippingcity,fldshippingcountry,fldshippingaddressline1,fldshippingaddressline2,fldorderdate,fldshippingdeliverycomment)
 			VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -265,10 +273,12 @@ if(isset($_POST['checkoutbtn'])){
 				$_SESSION['fldproductimage'] = $productimage = $product['fldproductimage'];
 				$_SESSION['fldproductprice'] = $productprice = $product['fldproductprice'];
 				$_SESSION['fldproductquantity'] = $productquantity = $product['fldproductquantity'];
+				$productdiscount = $product['fldproductdiscount'];
+				
 				//1.9.1 insert each single item in Orders Items Table
-				$stmt7 = $conn->prepare("INSERT INTO orderitems (fldorderid,fldproductid,fldproductsellersid,fldproductname,fldproductimage,fldproductprice,fldproductquantity,fldshippingid,fldbillingidnumber,fldorderdate)
-				VALUES (?,?,?,?,?,?,?,?,?,?)");
-				$stmt7->bind_param('iiissiiiss',$orderid,$productid,$productname,$productimage,$productprice,$productquantity,$shippingid,$billingidnumber,$orderdate);
+				$stmt7 = $conn->prepare("INSERT INTO orderitems (fldorderid,fldproductid,fldproductsellersid,fldproductname,fldproductdiscount,fldproductimage,fldproductprice,fldproductquantity,fldshippingid,fldbillingidnumber,fldorderdate)
+				VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+				$stmt7->bind_param('iiisisiiiss',$orderid,$productid,$productname,$productdiscount,$productimage,$productprice,$productquantity,$shippingid,$billingidnumber,$orderdate);
 				if($stmt7->execute()){
 
 				}

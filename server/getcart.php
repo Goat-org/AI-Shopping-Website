@@ -40,8 +40,9 @@ function calculatetotalcart(){
 
     $price = $product['fldproductprice'];
     $quantity = $product['fldproductquantity'];
+    $discount = $product['fldproductdiscount'];
     
-    $totalprice = $totalprice + ($price * $quantity);
+    $totalprice = $totalprice+($price*$quantity)-($price*$quantity*$discount);
     $totalquantity = $totalquantity + $quantity; 
 
   }
