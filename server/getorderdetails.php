@@ -76,8 +76,9 @@ function calculatetotalorderprice($orderdetails){
 
     $productprice = $row['fldproductprice'];
     $productquantity = $row['fldproductquantity'];
-
-    $totalproductprice = $totalproductprice + ($productprice * $productquantity);
+    $productdiscount = $row['fldproductdiscount'];
+    
+    $totalproductprice = $totalproductprice+($productprice*$productquantity)-($productprice*$productquantity*$productdiscount);
   }
   return $totalproductprice;
 }

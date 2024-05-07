@@ -116,7 +116,7 @@ include('server/getproductdetails.php');
 			<div class="col-2">
 				<p>Home / Product-Details</p>
 				<h1 class = "shop-item-title"><?php echo $row['fldproductname']; ?></h1>
-				<h4 class = "shop-item-price" style="margin-left: 10px; font-size: large">R <?php echo $row['fldproductprice']; ?></h4>
+				<h4 class = "shop-item-price" style="margin-left: 10px; font-size: large">R <?php $discount = $row['fldproductdiscount']*100; if(isset($row['fldproductprice'])){ echo $row['fldproductprice']." / ".$discount."% OFF"; }else{ echo $row['fldproductprice']; } ?></h4>
 				<h4 class = "shop-item-stock" style="margin-left: 10px; color: red; font-weight: bold"><?php echo $row['fldproductstock']; ?> left in stock</h4>
 
 				<form name="productdetailsform" method="POST" action="productdetails.php">

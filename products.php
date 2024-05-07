@@ -29,7 +29,7 @@ include('layouts/header.php');
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star-o"></i>
 			</div>
-			<p><?php echo $row['fldproductprice']; ?></p>
+			<p>R <?php echo $row['fldproductprice']; ?></p>
 		</div>
 		<?php } ?>
 	</div>
