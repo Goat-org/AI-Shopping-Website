@@ -84,6 +84,7 @@ if(isset($_POST['buynowbtn'])){
         'fldproductimage' => $_POST['fldproductimage'],
         'fldproductquantity' => $_POST['fldproductquantity'],
         'fldproductdiscount' => $_POST['fldproductdiscount'],
+        'fldproductstock' => $_POST['fldproductstock'],
       );
       $_SESSION['cart'][$productid] = $productarray;
     }
@@ -99,6 +100,7 @@ if(isset($_POST['buynowbtn'])){
     $productimage = $_POST['fldproductimage'];
     $productquantity = $_POST['fldproductquantity'];
     $productdiscount = $_POST['fldproductdiscount'];
+    $productstock = $_POST['fldproductstock'];
     $productarray = array(
       'fldproductid' => $productid,
       'fldproductsellersid' => $productsellersid,
@@ -107,13 +109,14 @@ if(isset($_POST['buynowbtn'])){
       'fldproductimage' => $productimage,
       'fldproductquantity' => $productquantity,
       'fldproductdiscount' => $productdiscount,
+      'fldproductstock' => $productstock,
     );
     $_SESSION['cart'][$productid] = $productarray;
   }
 
   //2.1 calculate total
   calculatetotalcart();
-  header('location: ../cart.php?editmessage=Added To Cart Succesfully!');
+  header('location: ../cart.php?editmessage=Added To Cart Succesfully!&fldproductid='.$productid);
 }
 else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
   //1. if user has already added to cart
@@ -131,6 +134,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
         'fldproductimage' => $_POST['fldproductimage'],
         'fldproductquantity' => $_POST['fldproductquantity'],
         'fldproductdiscount' => $_POST['fldproductdiscount'],
+        'fldproductstock' => $_POST['fldproductstock'],
       );
       $_SESSION['cart'][$productid] = $productarray;
     }
@@ -146,6 +150,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
     $productimage = $_POST['fldproductimage'];
     $productquantity = $_POST['fldproductquantity'];
     $productdiscount = $_POST['fldproductdiscount'];
+    $productstock = $_POST['fldproductstock'];
 
     $productarray = array(
       'fldproductid' => $productid,
@@ -155,6 +160,7 @@ else if(isset($_POST['addtocartbtn'])){//If Add To Cart Button Is Clicked
       'fldproductimage' => $productimage,
       'fldproductquantity' => $productquantity,
       'fldproductdiscount' => $productdiscount,
+      'fldproductstock' => $productstock,
     );
     $_SESSION['cart'][$productid] = $productarray;
   }
@@ -178,7 +184,6 @@ function calculatetotalcart(){
     
     $totalprice = $totalprice+($price*$quantity)-($price*$quantity*$discount);
     $totalquantity = $totalquantity + $quantity; 
-
   }
 
   $_SESSION['total'] = $totalprice;

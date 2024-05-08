@@ -394,7 +394,7 @@ if(empty($_SESSION['cart'])){
 				<td>
 					<form method="POST" action="cart.php">
 						<input type="hidden" name="fldproductid" value="<?php echo $value['fldproductid']; ?>"/>
-						<input type="number" name="fldproductquantity" class="productquantity" value="<?php echo $value['fldproductquantity']; ?>" min="1"/>
+						<input type="number" name="fldproductquantity" class="productquantity" value="<?php echo $value['fldproductquantity']; ?>" min="1" max="<?php echo $value['fldproductstock']; ?>"/>
 						<input type="submit" name="editquantitybtn" class="editbtn" value="edit"/>
 					</form>
 				</td>

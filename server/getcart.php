@@ -31,6 +31,7 @@ else if(empty($_SESSION['cart'])){//6. if cart is empty dont let user go to chec
 } 
 else{
 }
+
 function calculatetotalcart(){
   $totalprice = 0;
   $totalquantity = 0;

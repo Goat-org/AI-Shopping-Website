@@ -71,9 +71,7 @@ if(isset($_POST['ordersbtn'])){
 
 function calculatetotalorderprice($orderdetails){
   $totalproductprice = 0;
-
   foreach($orderdetails as $row){
-
     $productprice = $row['fldproductprice'];
     $productquantity = $row['fldproductquantity'];
     $productdiscount = $row['fldproductdiscount'];
