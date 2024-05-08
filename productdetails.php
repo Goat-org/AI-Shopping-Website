@@ -125,7 +125,7 @@ include('server/getproductdetails.php');
 					<input type="hidden" name="fldproductimage" value="<?php echo $row['fldproductimage']; ?>"/>
 					<input type="hidden" name="fldproductname" value="<?php echo $row['fldproductname']; ?>"/>
 					<input type="hidden" name="fldproductprice" value="<?php echo $row['fldproductprice']; ?>"/>
-					<input type="number" name="fldproductquantity" value="1" min="1" max="<?php echo $row['fldproductstock']; ?>"/>
+					<input type="number" name="fldproductquantity" value="<?php if($row['fldproductstock']!=0){ echo "1"; }else{ echo "0"; }?>" min="<?php if($row['fldproductstock']!=0){ echo "1"; }else{ echo "0"; }?>" max="<?php echo $row['fldproductstock']; ?>"/>
 					<input type="hidden" name="fldproductdiscount" value="<?php echo $row['fldproductdiscount']; ?>"/>
 					<input type="hidden" name="fldproductstock" value="<?php echo $row['fldproductstock']; ?>"/><br>
 					<?php if($row['fldproductstock']!=0){ ?>
