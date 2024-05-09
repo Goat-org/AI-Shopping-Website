@@ -86,14 +86,4 @@ session_start();
 				<!------ Js for Toggle Menu ----->
 				<script src="js/getheadertogglemenu.js"></script>
 			</div>
-			
-	
 		</div>
-		<!--search-bar + recomendations-->
-		<div class="search-bar">
-  			<input type="text" id="searchInput" placeholder="Search...">
-		  	<button id="searchButton">Search</button>
-  			<div id="suggestionsContainer"></div>
-		</div>
-		</body>
-</html>
