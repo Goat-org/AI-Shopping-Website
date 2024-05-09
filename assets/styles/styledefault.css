@@ -203,6 +203,35 @@ h4{
 	visibility: collapse;
 }
 
+.search-bar{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+  
+#searchInput{
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+#searchButton{
+	padding: 8px 16px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+#searchButton:hover{
+	background-color: #45a049;
+}
+  
 .exitmenutogglebtn{
 	font-family: cursive;
 	margin-right: 30px;
@@ -255,11 +284,7 @@ h4{
 	border-radius: 50%;
 }
 
-/*--------- offer0 ---------*/
-.offer0{
-	width: 100%;
-}
-
+/*--------- Voice Recognition ---------*/
 #voicerecognitionbtn{
 	position: fixed;
 	bottom: 20px;
@@ -290,6 +315,41 @@ h4{
 	bottom: 20px;
 	right: 5%;
 	font-size: 16px;
+}
+
+/*--------- Chat Bot ---------*/
+#chat-container{
+	position: fixed;
+	bottom: 5%;
+	left: 5px;
+	padding: 10px 20px;
+	border: solid #FFFFFF;
+	border-width: 5px;
+	border-radius: 25%;
+	max-width: 180px;
+	max-height: 130px;
+	background-color: #05598a;
+	color: rgb(255, 255, 255);
+}
+
+#chat-container input{
+	width: 100%;
+	border: solid rgb(223, 217, 217);
+	border-width: 5px;
+	border-radius: 5%;
+	margin-bottom: 1%;
+}
+
+#chatbotbtn{
+	width: fit-content;
+	padding: 4px 7.5px;
+	display: block;
+	margin: auto;
+}
+
+/*--------- offer0 ---------*/
+.offer0{
+	width: 100%;
 }
 
 /*--------- offer ---------*/
