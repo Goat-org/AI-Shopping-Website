@@ -203,35 +203,6 @@ h4{
 	visibility: collapse;
 }
 
-.search-bar {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 20px;
-  }
-
-  #searchInput {
-		padding: 8px;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		margin-right: 10px;
-		font-size: 16px;
-  }
-
-  #searchButton {
-		padding: 8px 16px;
-		background-color: #4CAF50;
-		color: white;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
-		font-size: 16px;
-  }
-
-  #searchButton:hover {
-		background-color: #45a049;
-  }
-
 .exitmenutogglebtn{
 	font-family: cursive;
 	margin-right: 30px;
@@ -1964,3 +1935,7 @@ form a{
 	margin-left: 75px;
 }
 }
+
+
+  
+  
