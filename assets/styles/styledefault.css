@@ -203,29 +203,39 @@ h4{
 	visibility: collapse;
 }
 
-.search-bar{
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.searchProductsForm{
+	max-width: 100%;
+	position: sticky;
+	display: none;
+	padding: 20px;
+}
+
+.searchProductsDiv{
+	width: 100%;
 	margin-bottom: 20px;
 }
   
 #searchInput{
-	padding: 8px;
+	width: 90%;
+	height: fit-content;
+	padding: 8px 16px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	margin-left: 10px;
 	margin-right: 10px;
 	font-size: 16px;
 }
 
 #searchButton{
 	padding: 8px 16px;
+	height: fit-content;
 	background-color: #4CAF50;
 	color: white;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: 16px;
+	width: fit-content;
 }
 
 #searchButton:hover{
