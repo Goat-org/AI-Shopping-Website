@@ -122,9 +122,6 @@ h4{
 .logo{
 	width: 150px;
 	height: 90px;
-	border: double;
-	border-width: 10px;
-	border-radius: 50%;
 }
 
 .logo:hover{
@@ -141,8 +138,8 @@ h4{
 .navbar nav{
 	flex: 1;
 	text-align: right;
-	background: #FFFFFF;
-	width: 50%;
+	background: #9eddec;
+	width: 100px;
 	height: 100%;
 	line-height: 100%;
 }

@@ -71,17 +71,40 @@ if(isset($_GET['fldtransactionid'])){
       else{
         header('cart.php?error=Something Went Wrong!! Contact Support Team.');
       }
+      //Look for product most sold value in database
+      $stmt5 = $conn->prepare("SELECT * FROM products WHERE fldproductid=?");
+      $stmt5->bind_param('i',$productid);
+      if($stmt5->execute()){
+        $mostsoldproducts = $stmt5->get_result();// This is an array
+        while($row = $mostsoldproducts->fetch_assoc()){
+          $productmostsold = $row['fldproductmostsold'];
+          $productmostsold = $productmostsold + $productquantity;
+        }
+      }
+      else{
+        header('cart.php?error=Something Went Wrong!! Contact Support Team.');
+      }
+  
+      //Update product most sold column in products table
+      $stmt6 = $conn->prepare("UPDATE products SET fldproductmostsold=? WHERE fldproductid=?");
+      $stmt6->bind_param('ii',$productmostsold,$productid);
+      if($stmt6->execute()){
+
+      }
+      else{
+        header('cart.php?error=Something Went Wrong!! Contact Support Team.');
+      }
     }
 
     //Check For Matching Order Id In Customer Shipping Address Table
-    $stmt5 = $conn->prepare("SELECT fldshippingid,fldorderid,fldshippingfirstname,fldshippinglastname,fldshippingaddressline1,fldshippingaddressline2,fldshippingpostalcode,fldshippingcity,fldshippingcountry,fldshippingemail,fldshippingphonenumber,fldshippingdeliverycomment FROM customershippingaddress WHERE fldorderid = ? LIMIT 1");
-    $stmt5->bind_param('i',$orderid);
-    if($stmt5->execute()){
-      $stmt5->bind_result($shippingid,$orderid,$shippingfirstname,$shippinglastname,$shippingaddressline1,$shippingaddressline2,$shippingpostalcode,$shippingcity,$shippingcountry,$shippingemail,$shippingphonenumber,$shippingdeliverycomment);
-      $stmt5->store_result();
+    $stmt7 = $conn->prepare("SELECT fldshippingid,fldorderid,fldshippingfirstname,fldshippinglastname,fldshippingaddressline1,fldshippingaddressline2,fldshippingpostalcode,fldshippingcity,fldshippingcountry,fldshippingemail,fldshippingphonenumber,fldshippingdeliverycomment FROM customershippingaddress WHERE fldorderid = ? LIMIT 1");
+    $stmt7->bind_param('i',$orderid);
+    if($stmt7->execute()){
+      $stmt7->bind_result($shippingid,$orderid,$shippingfirstname,$shippinglastname,$shippingaddressline1,$shippingaddressline2,$shippingpostalcode,$shippingcity,$shippingcountry,$shippingemail,$shippingphonenumber,$shippingdeliverycomment);
+      $stmt7->store_result();
       //If Order Id Is Found In Customer Shipping Address Table
-      if($stmt5->num_rows() == 1){
-        $stmt5->fetch();
+      if($stmt7->num_rows() == 1){
+        $stmt7->fetch();
         //Set Shipping Session
         $_SESSION['fldshippingid'] = $shippingid;
         $_SESSION['fldshippingfirstname'] = $shippingfirstname;

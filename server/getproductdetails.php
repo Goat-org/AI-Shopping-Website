@@ -1,24 +1,59 @@
 <?php 
 include('connection.php');
-if(isset($_GET['fldproductid'])){
+if(isset($_GET['fldproductid']) && isset($_GET['fldproductmostviewed'])){
   $_SESSION['fldproductid'] = $productid = $_GET['fldproductid'];
-  $stmt4 = $conn->prepare("SELECT * FROM products WHERE fldproductid = ?");
-  $stmt4->bind_param("i",$productid);
-  if($stmt4->execute()){
+  $productmostviewed = $_GET['fldproductmostviewed'];
+  $stmt2 = $conn->prepare("SELECT * FROM products WHERE fldproductid=?");
+  $stmt2->bind_param("i",$productid);
+  if($stmt2->execute()){
     // This is an array of 1 product
-    $product = $stmt4->get_result();
+    $product = $stmt2->get_result();
+
+    //Look for product most viewed value in database
+    $stmt3 = $conn->prepare("SELECT * FROM products WHERE fldproductid=?");
+    $stmt3->bind_param('i',$productid);
+    if($stmt3->execute()){
+      $mostviewedproducts = $stmt3->get_result();// This is an array
+      while($row = $mostviewedproducts->fetch_assoc()){
+        $productmostviewed = $row['fldproductmostviewed'] + 1;
+      }
+    }
+    else{
+      header('index.php?error=Something Went Wrong!! Contact Support Team.');
+    }
+
+    //Update product most viewed column in products table
+    $stmt4 = $conn->prepare("UPDATE products SET fldproductmostviewed=? WHERE fldproductid=?");
+    $stmt4->bind_param('ii',$productmostviewed,$productid);
+    if($stmt4->execute()){
+
+    }
+    else{
+      header('index.php?error=Something Went Wrong!! Contact Support Team.');
+    }
   }
   else{
     header('location: index.php?error=Something Went Wrong!');
   }
 }
-else if(isset($_POST['fldproductid'])){
+else if(isset($_POST['fldproductid']) && isset($_POST['fldproductmostviewed'])){
   $productid = $_POST['fldproductid'];
-  $stmt4 = $conn->prepare("SELECT * FROM products WHERE fldproductid = ?");
-  $stmt4->bind_param("i",$productid);
-  if($stmt4->execute()){
+  $productmostviewed = $_POST['fldproductmostviewed'];
+  $stmt2 = $conn->prepare("SELECT * FROM products WHERE fldproductid=?");
+  $stmt2->bind_param("i",$productid);
+  if($stmt2->execute()){
     // This is an array of 1 product
-    $product = $stmt4->get_result();
+    $product = $stmt2->get_result();
+
+    //Update product most viewed column in products table
+    $stmt3 = $conn->prepare("UPDATE products SET fldproductmostviewed=? WHERE fldproductid=?");
+    $stmt3->bind_param('ii',$productmostviewed,$productid);
+    if($stmt3->execute()){
+
+    }
+    else{
+      header('cart.php?error=Something Went Wrong!! Contact Support Team.');
+    }
   }
   else{
     header('location: index.php?error=Something Went Wrong!');

@@ -38,15 +38,15 @@ include('layouts/header.php');
 		</div>
 </div>
 
-<!------- Recommended Products ----------->
+<!------- most sold products ----------->
 <div class="small-container">
-	<h2 class="title">Recommended Products</h2>
+	<h2 class="title">Most Sold Products</h2>
 	<div class="row"> 
 		<!---import the files--->
-		<?php include('server/getrecommendedproducts.php'); ?>
-		<?php while($row = $recommendedproducts->fetch_assoc()) { ?>
+		<?php include('server/getmostsoldproducts.php'); ?>
+		<?php while($row = $mostsoldproducts->fetch_assoc()) { ?>
 		<div class="col-4">
-			<a href="<?php echo "productdetails.php?fldproductid=". $row['fldproductid']; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" alt="Snow">
+			<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" alt="Snow">
 			<h4><?php echo $row['fldproductname']; ?></h4>
 			<div class="rating">
 				<i class="fa fa-star"></i>
@@ -61,6 +61,56 @@ include('layouts/header.php');
 		<?php } ?>
 	</div>
 </div>
+
+<!------- most viewed products ----------->
+<div class="small-container">
+	<h2 class="title">Most Viewed Products</h2>
+	<div class="row"> 
+		<!---import the files--->
+		<?php include('server/getmostviewedproducts.php'); ?>
+		<?php while($row = $mostviewedproducts->fetch_assoc()) { ?>
+		<div class="col-4">
+			<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" alt="Snow">
+			<h4><?php echo $row['fldproductname']; ?></h4>
+			<div class="rating">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star-o"></i>
+				<i class="fa fa-star-o"></i>
+			</div>
+			<p>R <?php echo $row['fldproductprice']; ?></p>
+			</a>
+		</div>
+		<?php } ?>
+	</div>
+</div>
+
+<!------- most rated products ----------->
+<div class="small-container">
+	<h2 class="title">Most Rated Products</h2>
+	<div class="row"> 
+		<!---import the files--->
+		<?php include('server/getmostratedproducts.php'); ?>
+		<?php while($row = $mostsoldproducts->fetch_assoc()) { ?>
+		<div class="col-4">
+			<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" alt="Snow">
+			<h4><?php echo $row['fldproductname']; ?></h4>
+			<div class="rating">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star-o"></i>
+				<i class="fa fa-star-o"></i>
+			</div>
+			<p>R <?php echo $row['fldproductprice']; ?></p>
+			</a>
+		</div>
+		<?php } ?>
+	</div>
+</div>
+
+
 
 <!------------- Latest products ----------->
 <div class="small-container">
@@ -96,8 +146,8 @@ include('layouts/header.php');
 		<?php while($row = $offerproducts->fetch_assoc()) { ?>
 
 			<div class="col-2">
-				<a href="<?php echo "productdetails.php?fldproductid=". $row['fldproductid']; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" class="offer-img" alt="Snow"></a>
-				<a href="<?php echo "productdetails.php?fldproductid=". $row['fldproductid']; ?>"><h4><?php echo $row['fldproductname']; ?></h4></a>
+				<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" class="offer-img" alt="Snow"></a>
+				<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" ?></h4></a>
 			</div>
 			<div class="col-2">
 				<p>Exclusively Available on our Website</p>
@@ -116,9 +166,9 @@ include('layouts/header.php');
 <!---------- testimonials --------->
 <div class="testimonials">
 	<div class="small-container">
+	<h2 class="title">Testimonials & Suggestions</h2>
 		<div class="row">
-			<h2 class="title">Testimonials & Suggestions</h2>
-			<h3 class="titledescription">help us improve by mentioning problems & challenges experienced in our online store.</h3>
+		<h3 class="titledescription">help us improve by mentioning problems & challenges experienced in our online store.</h3>
 			<!---import the files--->
 			<?php include('server/gettestimonials.php'); ?>
 			<?php while($row = $testimonials->fetch_assoc()) { ?>
