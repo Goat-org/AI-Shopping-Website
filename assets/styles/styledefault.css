@@ -757,6 +757,37 @@ input:focus{
 	font-size: small
 }
 
+.reviewrating {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.reviewrating input[type="radio"] {
+	display: none;
+}
+
+.reviewrating label {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.reviewrating label:before {
+	content: "\2605";
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 30px;
+	color: #ccc;
+}
+
+.reviewrating input[type="radio"]:checked ~ label:before {
+	color: gold;
+}
+
 #addtocartbtn{
 	width: 50%;
 }

@@ -178,14 +178,17 @@ include('server/getproductdetails.php');
 						<hr>
 						<form name="productreviewform" method="POST" action="productdetails.php?fldproductid=<?php echo $_GET['fldproductid'];?>&message=Updated Review Succesfully!">
 							<div class="row">
-								<div class="rating">
-									<label class="form-check-label">
-										<input class="fa fa-star-o" type="radio" name="fldproductreviewrating" id="checked-productreviewrating1" value="Not Good" checked>Not Good
-										<input class="fa fa-star-o" type="radio" name="fldproductreviewrating" id="checked-productreviewrating2" value="Can Do Better" checked>Can Do Better
-										<input class="fa fa-star-o" type="radio" name="fldproductreviewrating" id="checked-productreviewrating3" value="Satisfactory" checked>Satisfactory
-										<input class="fa fa-star-o" type="radio" name="fldproductreviewrating" id="checked-productreviewrating4" value="Good" checked>Good
-										<input class="fa fa-star-o" type="radio" name="fldproductreviewrating" id="checked-productreviewrating5" value="Excellent" checked>Excellent
-									</label>
+								<div class="reviewrating">
+									<input type="radio" id="star1" name="fldproductmostrated" value="1">
+									<label for="star1"></label>
+									<input type="radio" id="star2" name="fldproductmostrated" value="2">
+									<label for="star2"></label>
+									<input type="radio" id="star3" name="fldproductmostrated" value="3">
+									<label for="star3"></label>
+									<input type="radio" id="star4" name="fldproductmostrated" value="4">
+									<label for="star4"></label>
+									<input type="radio" id="star5" name="fldproductmostrated" value="5">
+									<label for="star5"></label>
 								</div>
 								<div class="form-group">
 									<label>Review
@@ -236,8 +239,8 @@ include('server/getproductdetails.php');
 		<?php while($row = $randomproducts->fetch_assoc()) { ?>
 
 		<div class="col-4">
-			<a href="<?php echo "productdetails.php?fldproductid=". $row['fldproductid']; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" alt="Snow"></a>
-			<a href="<?php echo "productdetails.php?fldproductid=". $row['fldproductid']; ?>"><h4><?php echo $row['fldproductname']; ?></h4></a>
+			<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" alt="Snow"></a>
+			<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><h4><?php echo $row['fldproductname']; ?></h4></a>
 			<div class="rating">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>

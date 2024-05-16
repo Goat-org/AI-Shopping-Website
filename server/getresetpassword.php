@@ -23,7 +23,7 @@ if(isset($_POST['resetpasswordbtn'])){
       $stmt->fetch();
     }
     else{
-      header('index.php?error=Something Went Wrong!! Contact Support Team.');
+      header('login.php?error=Something Went Wrong!! Contact Support Team.');
     }
 
     //3.1.1 if there is a user already registered with this email
@@ -34,7 +34,7 @@ if(isset($_POST['resetpasswordbtn'])){
         header('location: ../login.php?message=Password Has Been Reset Succesfully. Login To Account!');
       }
       else{
-        header('cart.php?error=Something Went Wrong!! Contact Support Team.');
+        header('login.php?error=Something Went Wrong!! Contact Support Team.');
       }
     }
     else{//3.1.2 if no user registered with this email before
