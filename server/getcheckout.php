@@ -174,46 +174,7 @@ if(isset($_POST['checkoutbtn'])){
 				else{
 					header('location: ../cart.php?error=Something Went Wrong, Try Again.');
 				}
-				
-				$stmt8 = $conn->prepare("UPDATE products SET fldproductmostsold=? WHERE fldproductid=?");
-				$stmt8->bind_param('ii',$productmostsold,$productid);
-				if($stmt8->execute()){
-					
-				}
-				else{
-					header('cart.php?error=Something Went Wrong!! Contact Support Team.');
-				}
-
-				 //Look for product most sold value in database
-				 $stmt8 = $conn->prepare("SELECT * FROM products WHERE fldproductid =?");
-				 $stmt8->bind_param('i',$productid);
-				 if($stmt8->execute()){
-  				 $mostsoldproducts = $stmt8->get_result();// This is an array
-				   while($row = $mostsoldproducts->fetch_assoc()) {
-					$productmostsold = $row['fldproductmostsold'];
-					$productmostsold =  $productmostsold + $productquantiy;
-				   }
-				 
-				}
-				 
-				   
-			
-				 else{
-				   header('cart.php?error=Something Went Wrong!! Contact Support Team.');
-				 }
-			 
-				 // Update product most sold products table database
-				$stmt9 = $conn->prepare("UPDATE products SET fldproductmostsold=? WHERE fldproductid=?");
-				$stmt9->bind_param('ii',$productmostsold,$productid);
-				if($stmt9->execute()){
-
-				}
-				else{
-					header('cart.php?error=Something Went Wrong!! Contact Support Team.');
-				}
-				
-			 
-		}
+			}
 		}
 		else{//Email is Wrong Or not in Database
 			//1.1.1 insert in User Table
@@ -317,40 +278,13 @@ if(isset($_POST['checkoutbtn'])){
 				//1.9.1 insert each single item in Orders Items Table
 				$stmt7 = $conn->prepare("INSERT INTO orderitems (fldorderid,fldproductid,fldproductsellersid,fldproductname,fldproductdiscount,fldproductimage,fldproductprice,fldproductquantity,fldshippingid,fldbillingidnumber,fldorderdate)
 				VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-				$stmt7->bind_param('iiisssiiiss',$orderid,$productid,$productname,$productdiscount,$productimage,$productprice,$productquantity,$shippingid,$billingidnumber,$orderdate);
+				$stmt7->bind_param('iiisssiiiss',$orderid,$productid,$productsellersid,$productname,$productdiscount,$productimage,$productprice,$productquantity,$shippingid,$billingidnumber,$orderdate);
 				if($stmt7->execute()){
 
 				}
 				else{
 					header('location: ../cart.php?error=Something Went Wrong, Try Again.');
 				}
-								 //Look for product most sold value in database
-								 $stmt8 = $conn->prepare("SELECT * FROM products WHERE fldproductid =?");
-								 $stmt8->bind_param('i',$productid);
-								 if($stmt8->execute()){
-								   $mostsoldproducts = $stmt8->get_result();// This is an array
-								   while($row = $mostsoldproducts->fetch_assoc()) {
-									$productmostsold = $row['fldproductmostsold'];
-									$productmostsold =  $productmostsold + $productquantiy;
-								   }
-								 
-								}
-								 
-								   
-							
-								 else{
-								   header('cart.php?error=Something Went Wrong!! Contact Support Team.');
-								 }
-							 
-								 // Update product most sold products table database
-								$stmt9 = $conn->prepare("UPDATE products SET fldproductmostsold=? WHERE fldproductid=?");
-								$stmt9->bind_param('ii',$productmostsold,$productid);
-								if($stmt9->execute()){
-				
-								}
-								else{
-									header('cart.php?error=Something Went Wrong!! Contact Support Team.');
-								}
 			}
 		}
 		//Store Other Important Info In Session
