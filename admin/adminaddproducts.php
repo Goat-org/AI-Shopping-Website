@@ -188,7 +188,7 @@ include('adminserver/getadminaddproducts.php');
                   <div class="form-group">
                     <p id="form-optional">[optional]</p>
                     <label>Product Discount
-                      <input type="number" class="form-control" name="fldproductdiscount" placeholder="Product Discount (0.05) %"/>
+                      <input type="text" class="form-control" name="fldproductdiscount" placeholder="Product Discount (0.05) %"/>
                     </label>
                   </div>
                   <div class="form-group">
