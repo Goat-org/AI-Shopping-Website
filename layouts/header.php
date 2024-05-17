@@ -73,7 +73,18 @@ session_start();
 					</nav>
 				</div>
 
-				<!---- Voice Recognition AI Search --->
+				<!--- ChatBot Pic Button--->
+				<div id="chatbotpiccontainer">
+					<a href="chatbot.php"><img src="assets/images/chatbot_pic.jpg" class="btn" id="chatbotpicbtn"/></a>
+					<!--<h1>Chatbot</h1>
+					<div id="chat-log"></div>
+					<input type="text" id="user-input" placeholder="Type hello for menu..." autofocus />
+					<button class="btn" id="chatbotbtn">Send</button>-->
+				</div>
+				<!------ Js for Chat Bot----->
+				<script src="js/getchatbot.js"></script>
+
+				<!---- Voice Recognition AI Search Button --->
 				<div class="voicerecognitioncontainer">
           <img src="assets/images/voicerecognitionicon_pic.png" class="btn" id="voicerecognitionbtn"/>
 					<p id="result"></p>
@@ -97,13 +108,3 @@ session_start();
 				</div>
 			</form>
 		</div>
-		
-		<!--- Chat Bot--->
-		<div id="chat-container">
-			<h1>Chatbot</h1>
-			<div id="chat-log"></div>
-			<input type="text" id="user-input" placeholder="Type hello for menu..." autofocus />
-			<button class="btn" id="chatbotbtn">Send</button>
-		</div>
-		<!------ Js for Chat Bot----->
-		<script src="js/getchatbot.js"></script>
