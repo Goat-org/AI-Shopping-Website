@@ -200,20 +200,22 @@ h4{
 	visibility: collapse;
 }
 
-.searchProductsForm{
+.searchProductsContainer{
 	max-width: 100%;
 	position: sticky;
-	display: none;
 	padding: 20px;
 }
 
 .searchProductsDiv{
 	width: 100%;
 	margin-bottom: 20px;
+	display: flex;
+  justify-content: center;
+  align-items: center;
 }
   
 #searchInput{
-	width: 90%;
+	width: 50%;
 	height: fit-content;
 	padding: 8px 16px;
 	border: 1px solid #ccc;
@@ -226,7 +228,7 @@ h4{
 #searchButton{
 	padding: 8px 16px;
 	height: fit-content;
-	background-color: #4CAF50;
+	background-color: #176bcc;
 	color: white;
 	border: none;
 	border-radius: 4px;
@@ -236,7 +238,7 @@ h4{
 }
 
 #searchButton:hover{
-	background-color: #45a049;
+	background-color: #0d2975;
 }
   
 .exitmenutogglebtn{
@@ -581,54 +583,6 @@ ul{
 
 .backimage{
  background: linear-gradient(to bottom, #6DB5F7 50%, #fff 50%);
-}
-
-/*---------- Departments Page ------------*/
-.departmentspage{
-	margin-bottom: 10vh;
-}
-
-#departmentsbiggercontainer{
-	width: 100%;
-	height: fit-content;
-	font-size: x-large;
-}
-
-.departmentscontainer{
-	font-family: Verdana;
-	font-weight: bold;
-	width: 100%;
-}
-
-.departmentscontainer label{
-	width: 70%;
-	border: solid rgb(10, 164, 202);
-	border-width: 10px;
-	border-radius: 1%;
-	padding: 10px;
-	margin: 50px;
-	cursor: pointer;
-	display: grid;
-}
-
-.departmentscontainer label:hover{
-	background-color: rgb(37, 111, 129);
-}
-
-.departmentscontainer select{
-	width: 100%;
-}
-
-#searchbtn{
-	box-shadow: 0px 15px 40px #7E6D5766;
-	font-family: Geneva;
-	font-size: 19px;
-	font-weight: bold;
-	border: solid #fff;
-	border-width: 5px;
-	width: 50%;
-	height: fit-content;		
-	padding: 10px;
 }
 
 /*---------- Products Page ------------*/

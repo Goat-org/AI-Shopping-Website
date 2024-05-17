@@ -23,13 +23,63 @@ include('layouts/header.php');
 		<div class="displayallproducts">
 			<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><img src="assets/images/<?php echo $row['fldproductimage']; ?>" alt="Snow"></a>
 			<a href="<?php echo "productdetails.php?fldproductid=".$row['fldproductid']."&fldproductmostviewed=1"; ?>"><h4><?php echo $row['fldproductname']; ?></h4></a>
-			<div class="rating">
+			<?php if($row['fldproductmostrated'] == 0) { ?>
+				<div class="rating">
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+				</div>
+			<?php }else if($row['fldproductmostrated'] == 1) { ?>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+				</div>
+			<?php }else if($row['fldproductmostrated'] == 2) { ?>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+				</div>
+			<?php }else if($row['fldproductmostrated'] == 3) { ?>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+				</div>
+			<?php }else if($row['fldproductmostrated'] == 4) { ?>
+				<div class="rating">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star-o"></i>
-			</div>
+				</div>
+			<?php }else if($row['fldproductmostrated'] == 5) { ?>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+				</div>
+			<?php }else { ?>
+				<div class="rating">
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+				</div>
+			<?php } ?>
 			<p>R <?php echo $row['fldproductprice']; ?></p>
 		</div>
 		<?php } ?>

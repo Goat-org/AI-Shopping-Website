@@ -88,13 +88,15 @@ session_start();
 		</div>
 		
 		<!---Search Bar--->
-		<form name="searchProductsForm" method="POST" action="products.php" class="searchProductsFormContainer">
-			<div class="searchProductsDiv">
-					<input type="text" id="searchInput" name="searchproductstring" placeholder="Search...">
-					<button type="submit" id="searchButton">Search</button>
-					<div id="suggestionsContainer"></div>
-			</div>
-		</form>
+		<div class="searchProductsContainer">
+			<form name="searchProductsForm" method="POST" action="products.php">
+				<div class="searchProductsDiv">
+						<input type="text" id="searchInput" name="searchproductstring" placeholder="Search...">
+						<button type="submit" id="searchButton">Search</button>
+						<div id="suggestionsContainer"></div>
+				</div>
+			</form>
+		</div>
 		
 		<!--- Chat Bot--->
 		<div id="chat-container">

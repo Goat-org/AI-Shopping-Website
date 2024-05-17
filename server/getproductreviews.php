@@ -16,15 +16,15 @@ if(isset($_POST['productreviewbtn'])){//If Product Review Button Is Clicked
 	$useremail = $_SESSION['flduseremail'];
   $productreviewcomment = $_POST['fldproductreviewcomment'];
   $productreviewdate = date('Y-m-d H:i:s');
-  $productreviewrating = $_POST['fldproductreviewrating'];
+  $productmostrated = $_POST['fldproductmostrated'];
 
   //check whether there is a user with this email or not
-  $stmt2 = $conn->prepare("SELECT count(*) FROM users WHERE flduseremail=?");
-  $stmt2->bind_param('s',$useremail);
-  if($stmt2->execute()){
-    $stmt2->bind_result($num_rows);
-    $stmt2->store_result();
-    $stmt2->fetch();
+  $stmt = $conn->prepare("SELECT count(*) FROM users WHERE flduseremail=?");
+  $stmt->bind_param('s',$useremail);
+  if($stmt->execute()){
+    $stmt->bind_result($num_rows);
+    $stmt->store_result();
+    $stmt->fetch();
   }
   else{
     header('location: ../index.php?error=Something Went Wrong. Contact Support Team!!');
@@ -32,10 +32,37 @@ if(isset($_POST['productreviewbtn'])){//If Product Review Button Is Clicked
 
   //if there is a user already registered with this email
   if($num_rows != 0){
-    //insert in Product Reviews
+    //Look for product most rated value in database
+    $stmt1 = $conn->prepare("SELECT * FROM productreviews WHERE fldproductid=?");
+    $stmt1->bind_param('i',$productid);
+    if($stmt1->execute()){
+      $mostratedproducts = $stmt1->get_result();// This is an array
+      while($row = $mostratedproducts->fetch_assoc()){
+        $totalproductreviews = $totalproductreviews + 1;
+        $addproductreviewrating = $addproductreviewrating + $row['fldproductreviewrating'];
+      }
+      $totalproductreviews = $totalproductreviews + 1;
+      $addproductreviewrating = $addproductreviewrating + $productmostrated;
+      $averageproductmostrated = $addproductreviewrating/$totalproductreviews;
+    }
+    else{
+      header('index.php?error=Something Went Wrong!! Contact Support Team.');
+    }
+
+    //Update product most rated column in products table
+    $stmt2 = $conn->prepare("UPDATE products SET fldproductmostrated=? WHERE fldproductid=?");
+    $stmt2->bind_param('ii',$averageproductmostrated,$productid);
+    if($stmt2->execute()){
+
+    }
+    else{
+      header('index.php?error=Something Went Wrong!! Contact Support Team.');
+    }
+
+    //Insert in product reviews table
     $stmt3 = $conn->prepare("INSERT INTO productreviews (fldproductid,flduserid,flduserfirstname,flduserlastname,fldusercountry,fldproductreviewcomment,fldproductreviewdate,fldproductreviewrating,flduseremail)
     VALUES (?,?,?,?,?,?,?,?,?)");
-    $stmt3->bind_param('iisssssss',$productid,$userid,$userfirstname,$userlastname,$usercountry,$productreviewcomment,$productreviewdate,$productreviewrating,$useremail);
+    $stmt3->bind_param('iisssssss',$productid,$userid,$userfirstname,$userlastname,$usercountry,$productreviewcomment,$productreviewdate,$productmostrated,$useremail);
     //Issue New Product Review info in Database
     $_SESSION['fldproductreviewid'] = $productreviewid = $stmt3->insert_id;
     if($stmt3->execute()){

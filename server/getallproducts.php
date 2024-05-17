@@ -74,7 +74,7 @@ else{// return all products
   $totalnumberofpages = ceil($totalrecords / $totalrecordsperpage);
 
   //4. get all products
-  $stmt1 = $conn->prepare("SELECT * FROM products LIMIT $offset,$totalrecordsperpage");
+  $stmt1 = $conn->prepare("SELECT * FROM products ORDER BY fldproductid DESC LIMIT $offset,$totalrecordsperpage");
   if($stmt1->execute()){
     $allproducts = $stmt1->get_result();
   }
