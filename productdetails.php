@@ -116,8 +116,65 @@ include('server/getproductdetails.php');
 			<div class="col-2">
 				<p>Home / Product-Details</p>
 				<h1 class = "shop-item-title"><?php echo $row['fldproductname']; ?></h1>
-				<h4 class = "shop-item-price" style="margin-left: 10px; font-size: large">R <?php $discount = $row['fldproductdiscount']*100; if(isset($row['fldproductprice'])){ echo $row['fldproductprice']." / ".$discount."% OFF"; }else{ echo $row['fldproductprice']; } ?></h4>
-				<h4 class = "shop-item-stock" style="margin-left: 10px; color: red; font-weight: bold"><?php echo $row['fldproductstock']; ?> left in stock</h4>
+				<h4 class = "shop-item-price" style="margin-left: 10px; font-size: large">R <?php $discount = $row['fldproductdiscount']*100; if(isset($row['fldproductprice'])){ echo $row['fldproductprice']." / ".$discount."% OFF"; }else{ echo $row['fldproductprice']; } ?></h4><br>
+				<h4 class = "shop-item-stock" style="margin-left: 10px; color: red; font-weight: bold"><?php echo $row['fldproductstock']; ?> left in stock</h4><br>
+				<?php if($row['fldproductmostrated'] == 0) { ?>
+				<div class="rating">
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+					<i class="fa fa-star-o"></i>
+				</div>
+				<?php }else if($row['fldproductmostrated'] == 1) { ?>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+					</div>
+				<?php }else if($row['fldproductmostrated'] == 2) { ?>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+					</div>
+				<?php }else if($row['fldproductmostrated'] == 3) { ?>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+					</div>
+				<?php }else if($row['fldproductmostrated'] == 4) { ?>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-o"></i>
+					</div>
+				<?php }else if($row['fldproductmostrated'] == 5) { ?>
+					<div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+					</div>
+				<?php }else { ?>
+					<div class="rating">
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+					</div>
+				<?php } ?>
 
 				<form name="productdetailsform" method="POST" action="productdetails.php">
 					<input type="hidden" name="fldproductid" value="<?php echo $row['fldproductid']; ?>"/>
@@ -223,7 +280,7 @@ include('server/getproductdetails.php');
 								<span>Member</span>
 							</td>
 							<td>
-								<span><?php echo $row['flduseremail']; ?></span>
+								<span><?php echo $row['flduserfirstname']; ?></span>
 							</td>
 							<td>
 								<span><?php echo $row['fldproductreviewdate']; ?></span>
