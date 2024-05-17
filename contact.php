@@ -97,7 +97,7 @@ include('server/getcontact.php');
     <hr class="mx-auto">
     <div class="contactpagecontainer">
       <div class="googlemapscontainer">
-        <iframe class="googlemaps" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=51%20Kosmos%20Avenue%20Johannesburg+(MR)&amp;t=p&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+        <iframe class="googlemaps" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=51%20Kosmos%20Avenue%20Roodepoort+(MR)&amp;t=p&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
         </iframe>
         <a href='https://www.easybooking.eu/'>Fetching Google Maps...</a> 
         <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=5c8a8dd1d18f664e1a4704f0a64fff04109a8dd8'>
