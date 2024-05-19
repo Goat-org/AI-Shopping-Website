@@ -16,7 +16,6 @@ include('server/getlogin.php');
 			<link rel="stylesheet" type="text/css" href="assets/styles/styledefault.css">
 			<link rel="stylesheet" type="text/css" href="assets/styles/stylecart.css">
 			<link rel="stylesheet" type="text/css" href="assets/styles/styletrackorderbanner.css">
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 			<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&display=swap" rel="stylesheet">
 			<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
