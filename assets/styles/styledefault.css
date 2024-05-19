@@ -6,7 +6,8 @@
 }
 
 body{
-	font-family: 'Poppins', sans-serif;
+	margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 a{
@@ -119,133 +120,157 @@ h4{
 	margin-top: 70px;
 }
 
-.logo{
-	width: 150px;
-	height: 90px;
+/* Logo Styling */
+.logo {
+    width: 150px;
+    height: 90px;
+    border: 2px solid #000; /* Adding border around the logo */
 }
 
-.logo:hover{
-	border-radius: 49%;
-	background-color: #777;
+.logo:hover {
+    border-radius: 49%;
+    background-color: #777;
 }
 
-.navbar{
-	display: flex;
-	align-items: center;
-	padding: 20px;
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #9eddec; /* Ensure navbar background is consistent */
 }
 
-.navbar nav{
-	flex: 1;
-	text-align: right;
-	background: #9eddec;
-	width: 100px;
-	height: 100%;
-	line-height: 100%;
+.navbar nav {
+    flex: 1;
+    text-align: right;
 }
 
-.navbar nav ul{
-	display: inline-block;
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
 }
 
-.navbar nav ul li{
-	display: inline-block;
-	margin-right: 20px;
+.navbar nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
 }
 
-.navbar .active:hover{
-	border-bottom: 3px solid rgb(23, 98, 212);
+.navbar .active:hover {
+    border-bottom: 3px solid rgb(23, 98, 212);
 }
 
-.departmentsnavbar{
-	position: sticky;
-	display: none;
-	padding: 20px;
+/* Search Bar Styling */
+.searchProductsContainer {
+    max-width: 100%;
+    position: sticky;
+    padding: 20px;
 }
 
-.departmentsnav{
-	flex: 1;
-	text-align: center;
-	line-height: 100%;
+.searchProductsDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.departmentsnavitems{
-	background: #666668;
-	display: list-item;
-	align-items: center;
-	max-width: 50%;
-	max-height: fit-content;
-	border: solid white;
-	border-width: 5px;
-	border-radius: 10%;
-	padding: 10px;
+#searchInput {
+    width: 50%;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
 }
 
-.departmentsnavitems a{
-	font-weight: bolder;
-	color: white;
-	padding: 10px;
+#searchButton {
+    padding: 8px 16px;
+    background-color: #176bcc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap; /* Prevent button text wrapping */
 }
 
-.departmentsactive:hover{
-	background-color: #cfcccc;
+#searchButton:hover {
+    background-color: #0d2975;
 }
 
-#navbaricons{
-	width: 30px;
-	height: 40px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+		justify-content: space-between;
+    }
+
+    .navbar nav {
+		position: relative;
+        text-align: left;
+        width: auto;
+    }
+
+    .navbar nav ul {
+        display: none; /* Hide the navbar items initially */
+        position: absolute;
+        top: 60px; /* Adjust as needed to position the dropdown */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #9eddec;
+        padding: 0;
+    }
+	
+	.navbar nav ul li {
+        display: block;
+        padding: 10px;
+        text-align: left;
+    }
+
+	.navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar .menu-toggle.active + ul {
+        display: flex; /* Show the navbar items when toggle is active */
+    }
+
+    .searchProductsDiv {
+        flex-direction: column;
+    }
+
+    #searchInput {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    #searchButton {
+        width: 80%;
+        margin: 10px 0;
+    }
 }
 
-#nav-exit{
-	visibility: collapse;
+/* Menu Toggle Styling */
+.menu-toggle {
+    display: none;
+    padding: 10px;
+    background: #176bcc;
+    color: white;
+    border: none;
+    border-radius: 4px;
 }
 
-.searchProductsContainer{
-	max-width: 100%;
-	position: sticky;
-	padding: 20px;
+.menu-toggle:hover {
+    background: #0d2975;
 }
 
-.searchProductsDiv{
-	width: 100%;
-	margin-bottom: 20px;
-	display: flex;
-  justify-content: center;
-  align-items: center;
-}
-  
-#searchInput{
-	width: 50%;
-	height: fit-content;
-	padding: 8px 16px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-left: 10px;
-	margin-right: 10px;
-	font-size: 16px;
-}
-
-#searchButton{
-	padding: 8px 16px;
-	height: fit-content;
-	background-color: #176bcc;
-	color: white;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 16px;
-	width: fit-content;
-}
-
-#searchButton:hover{
-	background-color: #0d2975;
-}
-  
-.exitmenutogglebtn{
-	font-family: cursive;
-	margin-right: 30px;
-	color: black;
-}
 
 #departmentsexitmenutogglebtn{
 	font-family: cursive;
