@@ -43,7 +43,7 @@ $(document).ready(function() {
     else if(result == "open registration" || result == "open registration page"){
       window.location.href="../registrations.php";
     }
-    else if(result == "search phones"){
+    else if(result == "search products"){
       window.location.href="../products.php?fldproductdepartments=phone&fldproductcategory=phone&fldproducttype=phone";
     }
     
