@@ -12,7 +12,7 @@ include('layouts/header.php');
   <h1>Chatbot</h1>
   <div id="chat-container">
       <div id="chat-log"></div><br>
-      Hello How May I Assist You?<br>Type hello for menu<br><br>
+      Hello How May I Assist You?<br>Type hello for menu<br><br>Type number (1,2,3,4,5) for chatbot response.<br><br>
       <input type="text" id="user-input" placeholder="Type hello for menu..." autofocus /><br><br>
       <button class="btn" id="chatbotbtn">Send</button>
   </div>

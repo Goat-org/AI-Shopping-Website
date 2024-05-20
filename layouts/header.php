@@ -36,7 +36,7 @@ session_start();
 				    </ul>
 					</nav>
 					<!---------------Account Image---------------->
-					<a href="login.php" style="margin-right: 3%;"><img id="accountpic" class="accountpic" src="assets/images/accounticon_pic.png" alt="Snow" width="30px" height="30px" align="left"></a>
+					<a href="login.php" style="margin-right: 3%;"><img id="accountpic" class="accountpic" src="assets/images/accounticon_pic.png" alt="Snow" width="30px" height="32px" align="left"></a>
 					<!---------------Cart Image---------------->
 					<a href="cart.php"><img id="cart-pic" class="cartpic" src="assets/images/cartpic.png" alt="Snow" width="30px" height="30px" align="left">
 					<?php if(isset($_SESSION['totalquantity']) && $_SESSION['totalquantity'] != 0) { ?>
@@ -75,11 +75,7 @@ session_start();
 
 				<!--- ChatBot Pic Button--->
 				<div id="chatbotpiccontainer">
-					<a href="chatbot.php"><img src="assets/images/chatbot_pic.jpg" class="btn" id="chatbotpicbtn"/></a>
-					<!--<h1>Chatbot</h1>
-					<div id="chat-log"></div>
-					<input type="text" id="user-input" placeholder="Type hello for menu..." autofocus />
-					<button class="btn" id="chatbotbtn">Send</button>-->
+					<a href="chatbot.php"><img onclick="chatbotmenutoggle()" src="assets/images/chatbot_pic.jpg" class="btn" id="chatbotpicbtn"/></a>
 				</div>
 				<!------ Js for Chat Bot----->
 				<script src="js/getchatbot.js"></script>

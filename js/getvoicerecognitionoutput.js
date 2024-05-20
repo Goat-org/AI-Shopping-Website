@@ -16,7 +16,6 @@ $(document).ready(function() {
   recognition.lang = 'en-US';
   recognition.onresult = function(event){
     let result = event.results[event.results.length - 1][0].transcript.toLowerCase().replace(".", "");
-
     $('#result').text(result);
 
     //Voice Recognition AI Commands

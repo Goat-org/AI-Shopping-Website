@@ -1,8 +1,10 @@
 <?php 
 include('connection.php');
-if(isset($_GET['fldproductid']) && isset($_GET['fldproductmostviewed'])){
+if(isset($_GET['fldproductid'])){
   $_SESSION['fldproductid'] = $productid = $_GET['fldproductid'];
-  $productmostviewed = $_GET['fldproductmostviewed'];
+  if(isset($_GET['fldproductmostviewed'])){
+    $productmostviewed = $_GET['fldproductmostviewed'];
+  }
   $stmt2 = $conn->prepare("SELECT * FROM products WHERE fldproductid=?");
   $stmt2->bind_param("i",$productid);
   if($stmt2->execute()){
@@ -36,9 +38,11 @@ if(isset($_GET['fldproductid']) && isset($_GET['fldproductmostviewed'])){
     header('location: index.php?error=Something Went Wrong!');
   }
 }
-else if(isset($_POST['fldproductid']) && isset($_POST['fldproductmostviewed'])){
+else if(isset($_POST['fldproductid'])){
   $productid = $_POST['fldproductid'];
-  $productmostviewed = $_POST['fldproductmostviewed'];
+  if(isset($_POST['fldproductmostviewed'])){
+    $productmostviewed = $_POST['fldproductmostviewed'];
+  }
   $stmt2 = $conn->prepare("SELECT * FROM products WHERE fldproductid=?");
   $stmt2->bind_param("i",$productid);
   if($stmt2->execute()){
@@ -52,7 +56,7 @@ else if(isset($_POST['fldproductid']) && isset($_POST['fldproductmostviewed'])){
 
     }
     else{
-      header('cart.php?error=Something Went Wrong!! Contact Support Team.');
+      header('index.php?error=Something Went Wrong!! Contact Support Team.');
     }
   }
   else{

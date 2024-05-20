@@ -6,8 +6,7 @@
 }
 
 body{
-	margin: 0;
-    font-family: Arial, sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 a{
@@ -120,24 +119,20 @@ h4{
 	margin-top: 70px;
 }
 
-/* Logo Styling */
-.logo {
-    width: 150px;
-    height: 90px;
-    border: 2px solid #000; /* Adding border around the logo */
+.logo{
+	width: 150px;
+	height: 90px;
 }
 
-.logo:hover {
-    border-radius: 49%;
-    background-color: #777;
+.logo:hover{
+	border-radius: 49%;
+	background-color: #777;
 }
 
-/* Navbar Styling */
-.navbar {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background: #9eddec; /* Ensure navbar background is consistent */
+.navbar{
+	display: flex;
+	align-items: center;
+	padding: 20px;
 }
 
 .navbar nav {
@@ -163,11 +158,53 @@ h4{
     border-bottom: 3px solid rgb(23, 98, 212);
 }
 
-/* Search Bar Styling */
-.searchProductsContainer {
-    max-width: 100%;
-    position: sticky;
-    padding: 20px;
+.departmentsnavbar{
+	position: sticky;
+	display: none;
+	padding: 20px;
+}
+
+.departmentsnav{
+	flex: 1;
+	text-align: center;
+	line-height: 100%;
+}
+
+.departmentsnavitems{
+	background: #666668;
+	display: list-item;
+	align-items: center;
+	max-width: 50%;
+	max-height: fit-content;
+	border: solid white;
+	border-width: 5px;
+	border-radius: 10%;
+	padding: 10px;
+}
+
+.departmentsnavitems a{
+	font-weight: bolder;
+	color: white;
+	padding: 10px;
+}
+
+.departmentsactive:hover{
+	background-color: #cfcccc;
+}
+
+#navbaricons{
+	width: 30px;
+	height: 40px;
+}
+
+#nav-exit{
+	visibility: collapse;
+}
+
+.searchProductsContainer{
+	max-width: 100%;
+	position: sticky;
+	padding: 20px;
 }
 
 .searchProductsDiv {
@@ -187,15 +224,16 @@ h4{
     font-size: 16px;
 }
 
-#searchButton {
-    padding: 8px 16px;
-    background-color: #176bcc;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    white-space: nowrap; /* Prevent button text wrapping */
+#searchButton{
+	padding: 8px 16px;
+	height: fit-content;
+	background-color: #176bcc;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	width: fit-content;
 }
 
 #searchButton:hover {
@@ -351,7 +389,7 @@ h4{
 	font-size: 16px;
 }
 
-/*--------- Chat Bot ---------*/
+/*--------- Chat Bot Window ---------*/
 #chat-container{
 	border: solid #FFFFFF;
 	background-color: #05598a;
