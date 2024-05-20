@@ -217,7 +217,7 @@ h4{
     }
 
     .navbar nav ul {
-        display: none; /* Hide the navbar items initially */
+        display: inline-block; /* Hide the navbar items initially */
         position: absolute;
         top: 60px; /* Adjust as needed to position the dropdown */
         left: 0;

@@ -1,6 +1,7 @@
 <?php
 include('layouts/header.php');
 ?>
+
 <!------------- Website Messages----------->
 <p style="color: red; font-weight: bold; text-align: center" class="text-center"><?php if(isset($_GET['error'])){ echo $_GET['error']; }?></p>
 <p style="color: green" class="text-center"><?php if(isset($_GET['message'])){ echo $_GET['message']; }?></p>
@@ -400,6 +401,24 @@ include('layouts/header.php');
 		</div>
 	</div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar'); // Assuming navbar class is 'navbar'
+    const navbarItems = document.querySelector('.navbar ul'); // Assuming navbar items are inside a ul container
+
+    navbar.addEventListener('click', function() {
+        navbarItems.classList.toggle('active');
+    });
+
+    // Close the navbar when clicking outside of it
+    document.addEventListener('click', function(event) {
+        if (!navbar.contains(event.target) && !navbarItems.contains(event.target)) {
+            navbarItems.classList.remove('active');
+        }
+    });
+});
+</script>
+
 <?php
 include('layouts/footer.php');
 ?>
