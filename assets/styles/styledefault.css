@@ -6,7 +6,7 @@
 }
 
 body{
-	font-family: 'Poppins', sans-serif;
+	font-family: Arial, sans-serif;
 }
 
 a{
@@ -121,18 +121,20 @@ h4{
 
 .logo{
 	width: 150px;
-	height: 90px;
+  height: 90px;
+  border: 2px solid #000; /* Adding border around the logo */
 }
 
 .logo:hover{
 	border-radius: 49%;
-	background-color: #777;
+  background-color: #777;
 }
 
 .navbar{
 	display: flex;
 	align-items: center;
 	padding: 20px;
+	background: #9eddec;
 }
 
 .navbar nav{
@@ -201,8 +203,8 @@ h4{
 }
 
 .searchProductsContainer{
-	max-width: 100%;
 	position: sticky;
+	max-width: 100%;
 	padding: 20px;
 }
 
@@ -235,6 +237,7 @@ h4{
 	cursor: pointer;
 	font-size: 16px;
 	width: fit-content;
+	white-space: nowrap; /* Prevent button text wrapping */
 }
 
 #searchButton:hover{
@@ -326,7 +329,7 @@ h4{
 	font-size: 16px;
 }
 
-/*--------- Chat Bot ---------*/
+/*--------- Chat Bot Window ---------*/
 #chat-container{
 	border: solid #FFFFFF;
 	background-color: #05598a;

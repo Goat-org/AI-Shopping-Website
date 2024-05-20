@@ -4,6 +4,9 @@ menuitems.style.maxHeight = "0px";
 let departmentsnavbar = document.getElementById("departmentsnavbar");
 departmentsnavbar.style.maxHeight = "0px";
 
+let chatbotbtn = document.getElementById("chatbotcontainer");
+chatbotbtn.style.maxHeight = "0px";
+
 //Display Menu Toggle Function
 function menutoggle(){
   if(menuitems.style.maxHeight == "0px")
